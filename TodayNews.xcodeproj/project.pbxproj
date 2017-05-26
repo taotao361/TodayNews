@@ -7,16 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F43B78EE4145B5FB3007077 /* Pods_TodayNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EC99D930954B5CD79F8A88 /* Pods_TodayNews.framework */; };
 		BCF3B1631ED80F43003B6776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1621ED80F43003B6776 /* AppDelegate.swift */; };
 		BCF3B1801ED81429003B6776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B17E1ED81429003B6776 /* Assets.xcassets */; };
-		BCF3B1811ED81429003B6776 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B17F1ED81429003B6776 /* Info.plist */; };
+		BCF3B1831ED81976003B6776 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B1821ED81976003B6776 /* Info.plist */; };
+		BCF3B1851ED81A0E003B6776 /* YTBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1841ED81A0E003B6776 /* YTBaseController.swift */; };
+		BCF3B1871ED81A3F003B6776 /* YTBaseNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1861ED81A3F003B6776 /* YTBaseNavController.swift */; };
+		BCF3B1891ED81A5E003B6776 /* YTBaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1881ED81A5E003B6776 /* YTBaseTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45EC99D930954B5CD79F8A88 /* Pods_TodayNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF574965AC47CE454C2310A /* Pods-TodayNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayNews/Pods-TodayNews.debug.xcconfig"; sourceTree = "<group>"; };
+		7B0C15DF312DDAB0C68F1E97 /* Pods-TodayNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayNews/Pods-TodayNews.release.xcconfig"; sourceTree = "<group>"; };
 		BCF3B15F1ED80F43003B6776 /* TodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF3B1621ED80F43003B6776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF3B17E1ED81429003B6776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BCF3B17F1ED81429003B6776 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF3B1821ED81976003B6776 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCF3B1841ED81A0E003B6776 /* YTBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTBaseController.swift; sourceTree = "<group>"; };
+		BCF3B1861ED81A3F003B6776 /* YTBaseNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTBaseNavController.swift; sourceTree = "<group>"; };
+		BCF3B1881ED81A5E003B6776 /* YTBaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTBaseTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,17 +34,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F43B78EE4145B5FB3007077 /* Pods_TodayNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3141B85702E522FB603E06DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45EC99D930954B5CD79F8A88 /* Pods_TodayNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BCF3B1561ED80F43003B6776 = {
 			isa = PBXGroup;
 			children = (
 				BCF3B1611ED80F43003B6776 /* TodayNews */,
 				BCF3B1601ED80F43003B6776 /* Products */,
+				E3A202639B8D528D0794D3B8 /* Pods */,
+				3141B85702E522FB603E06DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +74,7 @@
 				BCF3B1741ED810A9003B6776 /* other */,
 				BCF3B1761ED810C5003B6776 /* config */,
 				BCF3B1621ED80F43003B6776 /* AppDelegate.swift */,
+				BCF3B1821ED81976003B6776 /* Info.plist */,
 			);
 			path = TodayNews;
 			sourceTree = "<group>";
@@ -82,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				BCF3B17E1ED81429003B6776 /* Assets.xcassets */,
-				BCF3B17F1ED81429003B6776 /* Info.plist */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -90,6 +111,9 @@
 		BCF3B1771ED813C1003B6776 /* base */ = {
 			isa = PBXGroup;
 			children = (
+				BCF3B1841ED81A0E003B6776 /* YTBaseController.swift */,
+				BCF3B1861ED81A3F003B6776 /* YTBaseNavController.swift */,
+				BCF3B1881ED81A5E003B6776 /* YTBaseTabBarController.swift */,
 			);
 			path = base;
 			sourceTree = "<group>";
@@ -136,6 +160,15 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		E3A202639B8D528D0794D3B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7AF574965AC47CE454C2310A /* Pods-TodayNews.debug.xcconfig */,
+				7B0C15DF312DDAB0C68F1E97 /* Pods-TodayNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,9 +176,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BCF3B1711ED80F43003B6776 /* Build configuration list for PBXNativeTarget "TodayNews" */;
 			buildPhases = (
+				04E5765D94EF189B6D78FA44 /* [CP] Check Pods Manifest.lock */,
 				BCF3B15B1ED80F43003B6776 /* Sources */,
 				BCF3B15C1ED80F43003B6776 /* Frameworks */,
 				BCF3B15D1ED80F43003B6776 /* Resources */,
+				0C9B03F1C5A9FC49371F7C0D /* [CP] Embed Pods Frameworks */,
+				9E62D8FE098D0505BD0A2946 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -162,6 +198,7 @@
 		BCF3B1571ED80F43003B6776 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = YT;
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = yangxutao;
@@ -196,12 +233,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF3B1811ED81429003B6776 /* Info.plist in Resources */,
+				BCF3B1831ED81976003B6776 /* Info.plist in Resources */,
 				BCF3B1801ED81429003B6776 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04E5765D94EF189B6D78FA44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0C9B03F1C5A9FC49371F7C0D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayNews/Pods-TodayNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E62D8FE098D0505BD0A2946 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodayNews/Pods-TodayNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BCF3B15B1ED80F43003B6776 /* Sources */ = {
@@ -209,6 +294,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCF3B1631ED80F43003B6776 /* AppDelegate.swift in Sources */,
+				BCF3B1871ED81A3F003B6776 /* YTBaseNavController.swift in Sources */,
+				BCF3B1851ED81A0E003B6776 /* YTBaseController.swift in Sources */,
+				BCF3B1891ED81A5E003B6776 /* YTBaseTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +398,7 @@
 		};
 		BCF3B1721ED80F43003B6776 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7AF574965AC47CE454C2310A /* Pods-TodayNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -325,6 +414,7 @@
 		};
 		BCF3B1731ED80F43003B6776 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B0C15DF312DDAB0C68F1E97 /* Pods-TodayNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -357,6 +447,7 @@
 				BCF3B1731ED80F43003B6776 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
