@@ -14,11 +14,9 @@
 		BCF3B1851ED81A0E003B6776 /* YTBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1841ED81A0E003B6776 /* YTBaseController.swift */; };
 		BCF3B1871ED81A3F003B6776 /* YTBaseNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1861ED81A3F003B6776 /* YTBaseNavController.swift */; };
 		BCF3B1891ED81A5E003B6776 /* YTBaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1881ED81A5E003B6776 /* YTBaseTabBarController.swift */; };
-		BCF3B18B1ED81F7E003B6776 /* YTHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B18A1ED81F7E003B6776 /* YTHomeController.swift */; };
 		BCF3B18D1ED81F94003B6776 /* YTVideoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B18C1ED81F94003B6776 /* YTVideoController.swift */; };
 		BCF3B18F1ED81FA6003B6776 /* YTMineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B18E1ED81FA6003B6776 /* YTMineController.swift */; };
 		BCF3B1921ED82045003B6776 /* YTFollowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1911ED82045003B6776 /* YTFollowController.swift */; };
-		BCF3B1981ED83237003B6776 /* YTNewsTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1971ED83237003B6776 /* YTNewsTopic.swift */; };
 		BCF3B1AD1ED86354003B6776 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1A61ED86354003B6776 /* NSString+Extension.swift */; };
 		BCF3B1AE1ED86354003B6776 /* UIImage+Extendion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1A71ED86354003B6776 /* UIImage+Extendion.swift */; };
 		BCF3B1AF1ED86354003B6776 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1A81ED86354003B6776 /* UIImageView+Extension.swift */; };
@@ -26,6 +24,14 @@
 		BCF3B1B11ED86354003B6776 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1AA1ED86354003B6776 /* UIView+Extension.swift */; };
 		BCF3B1B21ED86354003B6776 /* YTConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1AB1ED86354003B6776 /* YTConstant.swift */; };
 		BCF3B1B31ED86354003B6776 /* YTNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1AC1ED86354003B6776 /* YTNetworkService.swift */; };
+		BCF3B1BF1ED9316F003B6776 /* YTHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1B91ED9316F003B6776 /* YTHomeController.swift */; };
+		BCF3B1C01ED9316F003B6776 /* YTBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1BB1ED9316F003B6776 /* YTBaseModel.swift */; };
+		BCF3B1C11ED9316F003B6776 /* YTHomeCategoryTitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1BC1ED9316F003B6776 /* YTHomeCategoryTitles.swift */; };
+		BCF3B1C21ED9316F003B6776 /* YTNewsTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1BD1ED9316F003B6776 /* YTNewsTopic.swift */; };
+		BCF3B1C41ED9318D003B6776 /* YTScrollTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1C31ED9318D003B6776 /* YTScrollTitleView.swift */; };
+		BCF3B1C61ED95FC0003B6776 /* YTHomeTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1C51ED95FC0003B6776 /* YTHomeTopicController.swift */; };
+		BCF3B1C81ED963F6003B6776 /* YTAddTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1C71ED963F6003B6776 /* YTAddTopicController.swift */; };
+		BCF3B1CA1ED96660003B6776 /* YTTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1C91ED96660003B6776 /* YTTipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +45,9 @@
 		BCF3B1841ED81A0E003B6776 /* YTBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTBaseController.swift; sourceTree = "<group>"; };
 		BCF3B1861ED81A3F003B6776 /* YTBaseNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTBaseNavController.swift; sourceTree = "<group>"; };
 		BCF3B1881ED81A5E003B6776 /* YTBaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTBaseTabBarController.swift; sourceTree = "<group>"; };
-		BCF3B18A1ED81F7E003B6776 /* YTHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeController.swift; sourceTree = "<group>"; };
 		BCF3B18C1ED81F94003B6776 /* YTVideoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTVideoController.swift; sourceTree = "<group>"; };
 		BCF3B18E1ED81FA6003B6776 /* YTMineController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTMineController.swift; sourceTree = "<group>"; };
 		BCF3B1911ED82045003B6776 /* YTFollowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTFollowController.swift; sourceTree = "<group>"; };
-		BCF3B1971ED83237003B6776 /* YTNewsTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTNewsTopic.swift; sourceTree = "<group>"; };
 		BCF3B1A61ED86354003B6776 /* NSString+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
 		BCF3B1A71ED86354003B6776 /* UIImage+Extendion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extendion.swift"; sourceTree = "<group>"; };
 		BCF3B1A81ED86354003B6776 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 		BCF3B1AA1ED86354003B6776 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BCF3B1AB1ED86354003B6776 /* YTConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTConstant.swift; sourceTree = "<group>"; };
 		BCF3B1AC1ED86354003B6776 /* YTNetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTNetworkService.swift; sourceTree = "<group>"; };
+		BCF3B1B91ED9316F003B6776 /* YTHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeController.swift; sourceTree = "<group>"; };
+		BCF3B1BB1ED9316F003B6776 /* YTBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTBaseModel.swift; sourceTree = "<group>"; };
+		BCF3B1BC1ED9316F003B6776 /* YTHomeCategoryTitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeCategoryTitles.swift; sourceTree = "<group>"; };
+		BCF3B1BD1ED9316F003B6776 /* YTNewsTopic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTNewsTopic.swift; sourceTree = "<group>"; };
+		BCF3B1C31ED9318D003B6776 /* YTScrollTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTScrollTitleView.swift; sourceTree = "<group>"; };
+		BCF3B1C51ED95FC0003B6776 /* YTHomeTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeTopicController.swift; sourceTree = "<group>"; };
+		BCF3B1C71ED963F6003B6776 /* YTAddTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTAddTopicController.swift; sourceTree = "<group>"; };
+		BCF3B1C91ED96660003B6776 /* YTTipView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTTipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +131,6 @@
 				BCF3B1901ED82025003B6776 /* Follow */,
 				BCF3B17B1ED813C1003B6776 /* Mine */,
 				BCF3B1771ED813C1003B6776 /* base */,
-				BCF3B1781ED813C1003B6776 /* data */,
 				BCF3B17A1ED813C1003B6776 /* Login-Register */,
 			);
 			path = src;
@@ -143,18 +154,12 @@
 			path = base;
 			sourceTree = "<group>";
 		};
-		BCF3B1781ED813C1003B6776 /* data */ = {
-			isa = PBXGroup;
-			children = (
-				BCF3B1971ED83237003B6776 /* YTNewsTopic.swift */,
-			);
-			path = data;
-			sourceTree = "<group>";
-		};
 		BCF3B1791ED813C1003B6776 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				BCF3B18A1ED81F7E003B6776 /* YTHomeController.swift */,
+				BCF3B1B81ED9316F003B6776 /* controller */,
+				BCF3B1BA1ED9316F003B6776 /* model */,
+				BCF3B1BE1ED9316F003B6776 /* view */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -210,6 +215,35 @@
 				BCF3B1AA1ED86354003B6776 /* UIView+Extension.swift */,
 			);
 			path = catagory;
+			sourceTree = "<group>";
+		};
+		BCF3B1B81ED9316F003B6776 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCF3B1B91ED9316F003B6776 /* YTHomeController.swift */,
+				BCF3B1C51ED95FC0003B6776 /* YTHomeTopicController.swift */,
+				BCF3B1C71ED963F6003B6776 /* YTAddTopicController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		BCF3B1BA1ED9316F003B6776 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				BCF3B1BB1ED9316F003B6776 /* YTBaseModel.swift */,
+				BCF3B1BC1ED9316F003B6776 /* YTHomeCategoryTitles.swift */,
+				BCF3B1BD1ED9316F003B6776 /* YTNewsTopic.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		BCF3B1BE1ED9316F003B6776 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BCF3B1C31ED9318D003B6776 /* YTScrollTitleView.swift */,
+				BCF3B1C91ED96660003B6776 /* YTTipView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		E3A202639B8D528D0794D3B8 /* Pods */ = {
@@ -348,16 +382,22 @@
 				BCF3B1631ED80F43003B6776 /* AppDelegate.swift in Sources */,
 				BCF3B1AE1ED86354003B6776 /* UIImage+Extendion.swift in Sources */,
 				BCF3B1AD1ED86354003B6776 /* NSString+Extension.swift in Sources */,
+				BCF3B1C61ED95FC0003B6776 /* YTHomeTopicController.swift in Sources */,
+				BCF3B1C01ED9316F003B6776 /* YTBaseModel.swift in Sources */,
+				BCF3B1BF1ED9316F003B6776 /* YTHomeController.swift in Sources */,
+				BCF3B1C21ED9316F003B6776 /* YTNewsTopic.swift in Sources */,
 				BCF3B1871ED81A3F003B6776 /* YTBaseNavController.swift in Sources */,
-				BCF3B1981ED83237003B6776 /* YTNewsTopic.swift in Sources */,
 				BCF3B1B21ED86354003B6776 /* YTConstant.swift in Sources */,
 				BCF3B18F1ED81FA6003B6776 /* YTMineController.swift in Sources */,
 				BCF3B1AF1ED86354003B6776 /* UIImageView+Extension.swift in Sources */,
 				BCF3B18D1ED81F94003B6776 /* YTVideoController.swift in Sources */,
+				BCF3B1C81ED963F6003B6776 /* YTAddTopicController.swift in Sources */,
 				BCF3B1B31ED86354003B6776 /* YTNetworkService.swift in Sources */,
+				BCF3B1C41ED9318D003B6776 /* YTScrollTitleView.swift in Sources */,
 				BCF3B1B11ED86354003B6776 /* UIView+Extension.swift in Sources */,
+				BCF3B1C11ED9316F003B6776 /* YTHomeCategoryTitles.swift in Sources */,
+				BCF3B1CA1ED96660003B6776 /* YTTipView.swift in Sources */,
 				BCF3B1851ED81A0E003B6776 /* YTBaseController.swift in Sources */,
-				BCF3B18B1ED81F7E003B6776 /* YTHomeController.swift in Sources */,
 				BCF3B1891ED81A5E003B6776 /* YTBaseTabBarController.swift in Sources */,
 				BCF3B1921ED82045003B6776 /* YTFollowController.swift in Sources */,
 				BCF3B1B01ED86354003B6776 /* UITableView+Extension.swift in Sources */,

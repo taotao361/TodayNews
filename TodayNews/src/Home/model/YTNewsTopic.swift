@@ -10,18 +10,18 @@ import UIKit
 
 class YTNewsTopic: NSObject {
 
-    // 文字的高度
-    var titleH: CGFloat = 0
-    var titleW: CGFloat = 0
-    var imageW: CGFloat = 0
-    var imageH: CGFloat = 0
-    var cellHeight: CGFloat = 0
+//    // 文字的高度
+//    var titleH: CGFloat = 0
+//    var titleW: CGFloat = 0
+//    var imageW: CGFloat = 0
+//    var imageH: CGFloat = 0
+//    var cellHeight: CGFloat = 0
     
     var abstract: String?
     
     var keywords: String?
     
-    var title: NSString?
+    var title: String?
     
     var label: String?
     
@@ -80,6 +80,8 @@ class YTNewsTopic: NSObject {
         super.init()
         cursor = dict["cursor"] as? Int
         
+        title = dict["title"] as? String
+        
         article_type = dict["article_type"] as? Int
         
         url = dict["url"] as? String
@@ -127,7 +129,34 @@ class YTNewsTopic: NSObject {
             }
         }
         
+        //imagelist
+        if let list = dict["image_list"] as? [AnyObject] {
+            for item in list {
+                let itemImage = YTImageList.init(dic: (item as! [String : AnyObject]))
+                image_list?.append(itemImage)
+            }
+        }
         
+        //middle_image
+        middle_image = dict["middle_image"] as? YTMiddleImageList
+        
+        //large_image_list
+        if let largeList = dict["large_image_list"] as? [AnyObject] {
+            for item in largeList {
+                let large = YTLargeImageList.init(dic: item as! [String : AnyObject])
+                large_image_list?.append(large)
+            }
+        }
+        
+        //video_detail_info
+        if let detailVideo = dict["video_detail_info"] {
+            video_detail_info = YTVideoDetailInfo.init(dic: (detailVideo as! [String : AnyObject]))
+        }
+        
+        //media_info
+        if let mediaInfo = dict["media_info"] {
+            media_info = YTMediaInfo.init(dic: mediaInfo as! [String : AnyObject])
+        }
         
     }
     
