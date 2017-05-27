@@ -76,7 +76,7 @@ class YTHomeController: YTBaseController {
             for topTitle in models {
                 let VC = YTHomeTopicController()
                 VC.topTitle = topTitle
-                self?.addChildViewController(VC)
+                self?.addChildViewController(VC) //添加VC
             }
             self?.scrollViewDidEndScrollingAnimation(self!.scrollView)
             self?.scrollView.contentSize = CGSize.init(width: SCREENW*CGFloat(models.count), height: SCREENH)
@@ -131,7 +131,7 @@ class YTHomeController: YTBaseController {
 
 extension YTHomeController : UIScrollViewDelegate {
     
-    //滑动结束后调用
+    //当动画结束时调用
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         //当前索引
         let index = Int(scrollView.contentOffset.x / scrollView.width)
@@ -157,6 +157,17 @@ extension YTHomeController : UIScrollViewDelegate {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         //跟刚开始拖拽时的 index 比较，是否需要改变 label 的位置
         titleView.adjustTitleOffsetToCurrentIndex(index, oldIndex: self.oldIndex)
+        
+        //取出子控制器
+        let vc = self.childViewControllers[index]
+        vc.view.x = scrollView.contentOffset.x
+        vc.view.y = 0
+        vc.view.height = scrollView.height
+        scrollView.addSubview(vc.view)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 }
