@@ -19,23 +19,31 @@ class YTAddTopicController: YTBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupUI()
+        
+        YTNetworkService.shareNetService.loadRecommendChannels { [weak self] (categorys) in
+            self?.recommentTopics = categorys
+            print(self?.recommentTopics ?? "no have")
+        }
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    
+    fileprivate func  setupUI() {
+        self.view.backgroundColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.init(named: "add_channels_close_20x20_"), style: .plain, target: self, action: #selector(click))
+    }
+
+
+    @objc fileprivate func click() {
+        self.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
+    
+    
+    
 
 }

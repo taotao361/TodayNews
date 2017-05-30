@@ -103,6 +103,35 @@ class YTNetworkService: NSObject {
     }
     
     
+    //MARK:-----推荐频道
+    func loadRecommendChannels(_ finish : @escaping (_ recommendChannels : [YTHomeCategoryTitles])->Void) {
+        let url = BASE_URL + "/article/category/get_extra/v1/?"
+        let paras : [String:Any] = ["device_id":device_id,"iid":IID,"aid":13]
+        Alamofire.request(url, method: .get, parameters: paras, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let json = JSON.init(value)
+                let dataDic = json["data"].dictionary
+                if let dataArray =  dataDic?["data"]?.arrayObject {
+                    var categorys = [YTHomeCategoryTitles]()
+                    for cate in dataArray {
+                        let c = YTHomeCategoryTitles.init(dic: (cate as! [String:AnyObject]))
+                        categorys.append(c)
+                    }
+                    finish(categorys)
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
     
     
     
