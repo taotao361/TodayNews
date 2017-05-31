@@ -8,87 +8,125 @@
 
 import UIKit
 
+let topicSmallCellID = "topicSmallCellID"
+let topicLargeCellID = "topicLargeCellID"
+let topicNoImageCellID = "topicNoImageCellID"
+let topicMiddleCellID = "topicMiddleCellID"
+
 class YTHomeTopicController: UITableViewController {
 
+    //上一次选中的tabBar index
+    var lastSelectedIndex = 0
     // 记录点击的顶部标题
     var topTitle: YTHomeCategoryTitles?
+    
+    //下拉刷新的时间
+    fileprivate var pullRefreshTime : TimeInterval?
+    //存放新闻主题的数组
+    fileprivate var newsTopics = [YTNewsTopic]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupUI()
+        
+        setupRefresh()
 
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    fileprivate func setupUI() {
+        self.definesPresentationContext = true
+        tableView.contentInset = UIEdgeInsetsMake(20, 0, 49, 0)
+        //注册cell
+        tableView.register(YTHomeLargeCell.self, forCellReuseIdentifier: topicLargeCellID)
+        tableView.register(YTHomeSmallCell.self, forCellReuseIdentifier: topicSmallCellID)
+        tableView.register(YTHomeMiddleCell.self, forCellReuseIdentifier: topicMiddleCellID)
+        tableView.register(YTHomeNoImageCell.self, forCellReuseIdentifier: topicNoImageCellID)
+        
+        //预设cell高度为 100
+        tableView.estimatedRowHeight = 100
+        
+        //头部
+        
+        //监听 tabbar 点击
+        NotificationCenter.default.addObserver(self, selector: #selector(tabBarSelected), name: NSNotification.Name(rawValue: YMTabBarDidSelectedNotification), object: nil)
+        
+        
     }
+    
+    func tabBarSelected() {
+        //如果是连点 2 次，并且 如果选中的是当前导航控制器，刷新
+        if lastSelectedIndex == tabBarController?.selectedIndex {
+            tableView.mj_header.beginRefreshing()
+        }
+        lastSelectedIndex = self.tabBarController!.selectedIndex
+    }
+    
+    //添加上拉 下拉刷新
+    fileprivate func setupRefresh() {
+        pullRefreshTime = Date.init().timeIntervalSince1970
+        
+        //获取首页不同分类的新闻内容
+        YTNetworkService.shareNetService.loadHomeCatagoryNews(catagory: topTitle!.category!, tableView: tableView) { [weak self] (nowTime, topics) in
+            self?.pullRefreshTime = nowTime
+            self?.newsTopics = topics
+            self?.tableView.reloadData()
+        }
+    }
+    
+    
+    
+    
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return newsTopics.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        let topic = newsTopics[indexPath.row]
+        if topic.image_list.count != 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: topicSmallCellID) as! YTHomeSmallCell
+            cell.newsTopic = topic
+//            cell.closeBtnClick()
+            return cell
+        } else {
+            if topic.middle_image != nil {
+                if topic.video_detail_info?.video_id != nil || topic.large_image_list?.count != 0 {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: topicLargeCellID) as! YTHomeLargeCell
+                    cell.newTopic = topic
+                    return cell
+                } else {
+                    let cell  = tableView.dequeueReusableCell(withIdentifier: topicMiddleCellID) as! YTHomeMiddleCell
+                    cell.newTopic = topic
+                    return cell
+                }
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: topicNoImageCellID) as! YTHomeNoImageCell
+                cell.newsTopic = topic
+                return cell
+            }
+        }
     }
-    */
+    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let topic = newsTopics[indexPath.row]
+        let cell = tableView.cellForRow(at: indexPath) as! YTHomeTopicCell
+        let height = cell.cellHeight()
+        return height
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

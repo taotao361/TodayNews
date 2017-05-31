@@ -22,7 +22,7 @@ class YTNewsTopic: NSObject {
     var keywords: String?
     
     var title: String?
-    
+    ///置顶 热 视频等
     var label: String?
     
     var article_alt_url: String?
@@ -47,6 +47,7 @@ class YTNewsTopic: NSObject {
     var source_avatar: String?
     
     var group_id: Int?
+    var gallary_image_count: Int?
     
     var has_image: Bool?
     var has_m3u8_video: Bool?
@@ -62,7 +63,7 @@ class YTNewsTopic: NSObject {
     //点击item 叉号 弹出的内容
     var filter_words : [YTFilterWords]?
     
-    var image_list : [YTImageList]?
+    var image_list = [YTImageList]()
     var middle_image: YTMiddleImageList?
     var large_image_list : [YTLargeImageList]?
     
@@ -133,7 +134,7 @@ class YTNewsTopic: NSObject {
         if let list = dict["image_list"] as? [AnyObject] {
             for item in list {
                 let itemImage = YTImageList.init(dic: (item as! [String : AnyObject]))
-                image_list?.append(itemImage)
+                image_list.append(itemImage)
             }
         }
         

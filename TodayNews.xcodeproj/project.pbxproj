@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2F43B78EE4145B5FB3007077 /* Pods_TodayNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45EC99D930954B5CD79F8A88 /* Pods_TodayNews.framework */; };
+		BC1115861EDE6471009E2E0E /* YTHomeTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1115851EDE6471009E2E0E /* YTHomeTopicCell.swift */; };
+		BC1115881EDE7188009E2E0E /* YTHomeSmallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1115871EDE7188009E2E0E /* YTHomeSmallCell.swift */; };
+		BC11158A1EDE7DEC009E2E0E /* YTHomeMiddleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1115891EDE7DEC009E2E0E /* YTHomeMiddleCell.swift */; };
+		BC11158C1EDE997E009E2E0E /* YTHomeLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11158B1EDE997E009E2E0E /* YTHomeLargeCell.swift */; };
+		BC11158E1EDEA249009E2E0E /* YTHomeNoImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11158D1EDEA249009E2E0E /* YTHomeNoImageCell.swift */; };
 		BCF3B1631ED80F43003B6776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1621ED80F43003B6776 /* AppDelegate.swift */; };
 		BCF3B1801ED81429003B6776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B17E1ED81429003B6776 /* Assets.xcassets */; };
 		BCF3B1831ED81976003B6776 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B1821ED81976003B6776 /* Info.plist */; };
@@ -38,6 +43,11 @@
 		45EC99D930954B5CD79F8A88 /* Pods_TodayNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodayNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AF574965AC47CE454C2310A /* Pods-TodayNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodayNews/Pods-TodayNews.debug.xcconfig"; sourceTree = "<group>"; };
 		7B0C15DF312DDAB0C68F1E97 /* Pods-TodayNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodayNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodayNews/Pods-TodayNews.release.xcconfig"; sourceTree = "<group>"; };
+		BC1115851EDE6471009E2E0E /* YTHomeTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeTopicCell.swift; sourceTree = "<group>"; };
+		BC1115871EDE7188009E2E0E /* YTHomeSmallCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeSmallCell.swift; sourceTree = "<group>"; };
+		BC1115891EDE7DEC009E2E0E /* YTHomeMiddleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeMiddleCell.swift; sourceTree = "<group>"; };
+		BC11158B1EDE997E009E2E0E /* YTHomeLargeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeLargeCell.swift; sourceTree = "<group>"; };
+		BC11158D1EDEA249009E2E0E /* YTHomeNoImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeNoImageCell.swift; sourceTree = "<group>"; };
 		BCF3B15F1ED80F43003B6776 /* TodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF3B1621ED80F43003B6776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF3B17E1ED81429003B6776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -242,6 +252,11 @@
 			children = (
 				BCF3B1C31ED9318D003B6776 /* YTScrollTitleView.swift */,
 				BCF3B1C91ED96660003B6776 /* YTTipView.swift */,
+				BC1115851EDE6471009E2E0E /* YTHomeTopicCell.swift */,
+				BC1115871EDE7188009E2E0E /* YTHomeSmallCell.swift */,
+				BC1115891EDE7DEC009E2E0E /* YTHomeMiddleCell.swift */,
+				BC11158B1EDE997E009E2E0E /* YTHomeLargeCell.swift */,
+				BC11158D1EDEA249009E2E0E /* YTHomeNoImageCell.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -388,8 +403,11 @@
 				BCF3B1C21ED9316F003B6776 /* YTNewsTopic.swift in Sources */,
 				BCF3B1871ED81A3F003B6776 /* YTBaseNavController.swift in Sources */,
 				BCF3B1B21ED86354003B6776 /* YTConstant.swift in Sources */,
+				BC11158C1EDE997E009E2E0E /* YTHomeLargeCell.swift in Sources */,
 				BCF3B18F1ED81FA6003B6776 /* YTMineController.swift in Sources */,
+				BC11158E1EDEA249009E2E0E /* YTHomeNoImageCell.swift in Sources */,
 				BCF3B1AF1ED86354003B6776 /* UIImageView+Extension.swift in Sources */,
+				BC11158A1EDE7DEC009E2E0E /* YTHomeMiddleCell.swift in Sources */,
 				BCF3B18D1ED81F94003B6776 /* YTVideoController.swift in Sources */,
 				BCF3B1C81ED963F6003B6776 /* YTAddTopicController.swift in Sources */,
 				BCF3B1B31ED86354003B6776 /* YTNetworkService.swift in Sources */,
@@ -401,6 +419,8 @@
 				BCF3B1891ED81A5E003B6776 /* YTBaseTabBarController.swift in Sources */,
 				BCF3B1921ED82045003B6776 /* YTFollowController.swift in Sources */,
 				BCF3B1B01ED86354003B6776 /* UITableView+Extension.swift in Sources */,
+				BC1115861EDE6471009E2E0E /* YTHomeTopicCell.swift in Sources */,
+				BC1115881EDE7188009E2E0E /* YTHomeSmallCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

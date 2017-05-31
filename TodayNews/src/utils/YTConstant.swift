@@ -55,7 +55,7 @@ let device_id: String = "6096495334"
 let version_code = "5.7.1"
 
 /// tabBar 被点击的通知
-//let YMTabBarDidSelectedNotification = "YMTabBarDidSelectedNotification"
+let YMTabBarDidSelectedNotification = "YMTabBarDidSelectedNotification"
 
 /// 服务器地址
 let BASE_URL = "http://lf.snssdk.com/"
