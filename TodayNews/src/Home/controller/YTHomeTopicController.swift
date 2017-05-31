@@ -120,9 +120,10 @@ class YTHomeTopicController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        let topic = newsTopics[indexPath.row]
-        let cell = tableView.cellForRow(at: indexPath) as! YTHomeTopicCell
-        let height = cell.cellHeight()
-        return height
+        let cell = tableView.cellForRow(at: indexPath) as? YTHomeTopicCell
+        let height = cell?.cellHeight()
+        print("=============\(height ?? 100)")
+        return height ?? 100
     }
 
 

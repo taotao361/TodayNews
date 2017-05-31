@@ -48,6 +48,7 @@ class YTHomeSmallCell: YTHomeTopicCell {
                     
                     let width : CGFloat = (SCREENW - CGFloat(42)) / 3
                     let x : CGFloat = CGFloat(CGFloat(index) * width) + kMargin
+                    print("--------------------\(x)")
                     let height : CGFloat = 70
                     imageView.frame = CGRect.init(x: x, y: 0, width: width, height: height)
                     middleView.addSubview(imageView)
@@ -73,7 +74,7 @@ class YTHomeSmallCell: YTHomeTopicCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(kMargin)
             make.left.equalTo(titleLabel.snp.left)
             make.right.equalTo(titleLabel.snp.right)
-            make.bottom.equalTo(avatarImage.snp.top).offset(-kMargin)
+//            make.bottom.equalTo(avatarImage.snp.top).offset(-kMargin)
         }
     }
     

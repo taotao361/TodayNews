@@ -30,6 +30,7 @@ class YTHomeTopicCell: UITableViewCell {
         addSubview(stickLabel)
         addSubview(nameLabel)
         addSubview(timeLabel)
+        addSubview(titleLabel)
         addSubview(avatarImage)
         addSubview(commentLabel)
         addSubview(closeBtn)
@@ -41,7 +42,7 @@ class YTHomeTopicCell: UITableViewCell {
         
         avatarImage.snp.makeConstraints { (make) in
             make.left.equalTo(titleLabel.snp.left)
-            make.bottom.equalTo(self.snp.bottom).offset(-kHomeMargin)
+            make.top.equalTo(self.snp.bottom).offset(-kHomeMargin)
             make.size.equalTo(CGSize(width: 16, height: 16))
         }
         

@@ -33,8 +33,8 @@ class YTNetworkService: NSObject {
                 
                 if let value = response.result.value {
                     let json = JSON.init(value)//转换字典
-                    print(json)
                     let jsonDatas = json["data"].array //数据数组
+                    print("================  \(jsonDatas)")
                     var newsList = [YTNewsTopic].init()
                     for data in jsonDatas! {
                         let content = data["content"].stringValue
