@@ -94,7 +94,7 @@ class YTHomeMiddleCell: YTHomeTopicCell {
     
     //举报按钮点击
     override func closeBtnClick() {
-        closeButtonClosure?(filterWords!)
+        closeButtonClosure?(filterWords)
     }
     
 //    override func cellHeight() -> CGFloat {

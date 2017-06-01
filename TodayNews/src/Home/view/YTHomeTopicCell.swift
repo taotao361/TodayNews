@@ -18,9 +18,9 @@ import UIKit
 class YTHomeTopicCell: UITableViewCell {
 
     //点击cell✘显示
-    var filterWords : [YTFilterWords]?
+    var filterWords : [YTFilterWords]? = [YTFilterWords]()
     
-    var closeButtonClosure:((_ filterWords : [YTFilterWords]) -> Void)?
+    var closeButtonClosure:((_ filterWords : [YTFilterWords]?) -> Void)?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,13 +43,13 @@ class YTHomeTopicCell: UITableViewCell {
         addSubview(closeBtn)
         
         titleLabel.snp.makeConstraints { (make) in
-            make.left.top.equalTo(self).offset(kHomeMargin)
+            make.left.top.equalTo(self).offset(kMargin)
             make.right.equalTo(self).offset(-kHomeMargin)
         }
-        
+            
         avatarImage.snp.makeConstraints { (make) in
             make.left.equalTo(titleLabel.snp.left)
-            make.top.equalTo(self.snp.bottom).offset(-kHomeMargin)
+            make.top.equalTo(self.snp.bottom).offset(-20)
             make.size.equalTo(CGSize(width: 16, height: 16))
         }
         
@@ -145,12 +145,13 @@ class YTHomeTopicCell: UITableViewCell {
     
     //举报按钮点击
     @objc  func closeBtnClick() {
-        
+        closeButtonClosure?(filterWords!)
     }
     
-//    func cellHeight() -> CGFloat {
-//        return 0
-//    }
+    func closeBtnDidClick(_ filter: @escaping (_ filterWords : [YTFilterWords]?) -> Void) {
+        closeButtonClosure = filter
+    }
+    
     
 
 }

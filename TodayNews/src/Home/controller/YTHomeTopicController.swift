@@ -96,22 +96,33 @@ class YTHomeTopicController: UITableViewController {
         if topic.image_list.count != 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: topicSmallCellID) as! YTHomeSmallCell
             cell.newsTopic = topic
-//            cell.closeBtnClick()
+            cell.closeBtnDidClick({ [weak self] (filters) in
+                
+            })
             return cell
         } else {
             if topic.middle_image != nil {
                 if topic.video_detail_info?.video_id != nil || topic.large_image_list?.count != 0 {
                     let cell = tableView.dequeueReusableCell(withIdentifier: topicLargeCellID) as! YTHomeLargeCell
                     cell.newTopic = topic
+                    cell.closeBtnDidClick({ (filters) in
+                        
+                    })
                     return cell
                 } else {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: topicMiddleCellID) as! YTHomeMiddleCell
                     cell.newTopic = topic
+                    cell.closeBtnDidClick({ (filters) in
+                        
+                    })
                     return cell
                 }
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: topicNoImageCellID) as! YTHomeNoImageCell
                 cell.newsTopic = topic
+                cell.closeBtnDidClick({ (filters) in
+                    
+                })
                 return cell
             }
         }

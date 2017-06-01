@@ -127,8 +127,10 @@ class YTHomeLargeCell: YTHomeTopicCell {
     
     //举报按钮点击
     override func closeBtnClick() {
-        closeButtonClosure?(filterWords!)
+        closeButtonClosure?(filterWords)
     }
+    
+
     
 //    override func cellHeight() -> CGFloat {
 //        avatarImage.snp.makeConstraints { (make) in

@@ -64,8 +64,8 @@ class YTNewsTopic: NSObject {
     var video_duration: Int?
     var video_id: Int?
 
-    //点击item 叉号 弹出的内容
-    var filter_words : [YTFilterWords]?
+    //点击item 叉号 弹出的内容         分配内存
+    var filter_words : [YTFilterWords]? = [YTFilterWords]()
     
     var image_list = [YTImageList]()
     var middle_image: YTMiddleImageList?
@@ -132,6 +132,7 @@ class YTNewsTopic: NSObject {
                 let filterWords = YTFilterWords.init(dic: item as! [String:AnyObject])
                 filter_words?.append(filterWords)
             }
+            print("filter_words=====\(String(describing: filter_words))")
         }
         
         //imagelist

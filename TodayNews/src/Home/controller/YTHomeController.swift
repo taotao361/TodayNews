@@ -95,6 +95,12 @@ class YTHomeController: YTBaseController {
             var offset = self!.scrollView.contentOffset
             offset.x = CGFloat.init(titleLabel.tag) * self!.scrollView.width
             self!.scrollView.contentOffset = offset
+            let index = Int(offset.x/SCREENW)
+            let vc = self!.childViewControllers[index]
+            vc.view.x = self!.scrollView.contentOffset.x
+            vc.view.y = 0
+            vc.view.height = self!.scrollView.height
+            self!.scrollView.addSubview(vc.view)
         }
     }
 

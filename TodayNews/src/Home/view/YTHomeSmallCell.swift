@@ -32,8 +32,10 @@ class YTHomeSmallCell: YTHomeTopicCell {
             }
             
             filterWords = newsTopic?.filter_words
+            print("===============\(String(describing: filterWords))")
             
             if let images = newsTopic?.image_list {
+                if middleView.subviews.count > 0 { return }
                 for index in 0..<images.count {
                     let imageView = UIImageView.init()
                     let item = images[index]
@@ -94,8 +96,10 @@ class YTHomeSmallCell: YTHomeTopicCell {
     
     //举报按钮点击
     override func closeBtnClick() {
-        closeButtonClosure?(filterWords!)
+        closeButtonClosure?(filterWords)
     }
+    
+
     
     
     
