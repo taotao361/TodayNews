@@ -11,11 +11,15 @@ import UIKit
 class YTNewsTopic: NSObject {
 
 //    // 文字的高度
-//    var titleH: CGFloat = 0
-//    var titleW: CGFloat = 0
-//    var imageW: CGFloat = 0
-//    var imageH: CGFloat = 0
-//    var cellHeight: CGFloat = 0
+    var titleH: CGFloat = 0
+    //文字宽
+    var titleW: CGFloat = 0
+    //图片宽
+    var imageW: CGFloat = 0
+    //图片高
+    var imageH: CGFloat = 0
+    //cell高
+    var cellHeight: CGFloat = 0
     
     var abstract: String?
     
@@ -159,6 +163,46 @@ class YTNewsTopic: NSObject {
             media_info = YTMediaInfo.init(dic: mediaInfo as! [String : AnyObject])
         }
         
+        let imageList = dict["image_list"] as? [AnyObject]
+        let largeImageList = dict["large_image_list"] as? [AnyObject]
+        
+        if image_list.count == 0 {
+            if middle_image?.height != nil {
+                //大图 视频 广告
+                //如果 large_image_list 或 video_detail_info 不为空，则显示一张大图 (SCREENW -30)×170，文字在上边
+                //再判断 video_detail_info 是否为空
+                if video_detail_info?.video_id != nil || (largeImageList?.count)! > 0 {
+                    imageW = SCREENW - CGFloat.init(30)
+                    imageH = 170
+                    titleW = SCREENW - 30
+                    titleH = NSString.boundingRectWithString(title! as NSString, size: CGSize.init(width: titleW, height: CGFloat.init(MAXFLOAT)), fontSize: 17)
+                    // 中间有一张大图（包括视频和广告的图片），cell 的高度 = 底部间距 + 标题的高度 + 中间间距 + 图片高度 + 中间间距 + 用户头像的高度 + 底部间距
+                    cellHeight = 2 * kHomeMargin + titleH + imageH + 2 * kMargin + 16
+                } else {
+                    // 如果 middle_image 不为空，则在 cell 显示一张图片 70 × 108，文字在左边，图片在右边
+                    // 说明是右边图
+                    imageW = 108
+                    // 图片在右边的情况和有三张图片的情况，为了计算简单，图片的高度设置为相等
+                    imageH = 70
+                    // 文字宽度 SCREENW - 108 - 30 - 20
+                    titleW = SCREENW - 158
+                    titleH = NSString.boundingRectWithString(title! as NSString, size: CGSize.init(width: titleW, height: CGFloat.init(MAXFLOAT)), fontSize: 17)
+                    cellHeight =  (titleH + 16 + kMargin >= imageH) ? (2 * kHomeMargin + titleH + kMargin + 16):(2 * kHomeMargin + imageH)
+                }
+            } else {
+                titleW = SCREENW - 30
+                titleH = NSString.boundingRectWithString(title! as NSString, size: CGSize(width: titleW, height: CGFloat(MAXFLOAT)), fontSize: 17)
+                // 没有图片，cell 的高度 = 底部间距 + 标题的高度 + 中间的间距 + 用户头像的高度 + 底部间距
+                cellHeight = 2 * kHomeMargin + titleH + kMargin + 16
+            }
+        } else {  // 如果 image_list 不为空，则显示 3 张图片 ((SCREENW -30 -12) / 3)×70，文字在上边
+            imageW = (SCREENW - CGFloat(42)) / 3
+            imageH = 70
+            // 文字的宽度 SCREENW-30
+            titleW = SCREENW - 30
+            titleH = NSString.boundingRectWithString(title! as NSString, size: CGSize(width: titleW, height: CGFloat(MAXFLOAT)), fontSize: 17)
+            cellHeight = 2 * kHomeMargin + titleH + imageH + 2 * kMargin + 16
+        }
     }
     
     

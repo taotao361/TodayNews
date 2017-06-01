@@ -130,12 +130,12 @@ class YTHomeLargeCell: YTHomeTopicCell {
         closeButtonClosure?(filterWords!)
     }
     
-    override func cellHeight() -> CGFloat {
-        avatarImage.snp.makeConstraints { (make) in
-            make.top.equalTo(largeImageView.snp.bottom).offset(8)
-        }
-        return avatarImage.frame.maxY
-    }
+//    override func cellHeight() -> CGFloat {
+//        avatarImage.snp.makeConstraints { (make) in
+//            make.top.equalTo(largeImageView.snp.bottom).offset(8)
+//        }
+//        return avatarImage.y + avatarImage.height
+//    }
     
     
 }

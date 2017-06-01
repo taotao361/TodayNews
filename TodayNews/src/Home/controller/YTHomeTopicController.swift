@@ -37,7 +37,7 @@ class YTHomeTopicController: UITableViewController {
 
     fileprivate func setupUI() {
         self.definesPresentationContext = true
-        tableView.contentInset = UIEdgeInsetsMake(20, 0, 49, 0)
+        tableView.contentInset = UIEdgeInsetsMake(54, 0, 0, 0)
         //注册cell
         tableView.register(YTHomeLargeCell.self, forCellReuseIdentifier: topicLargeCellID)
         tableView.register(YTHomeSmallCell.self, forCellReuseIdentifier: topicSmallCellID)
@@ -45,7 +45,7 @@ class YTHomeTopicController: UITableViewController {
         tableView.register(YTHomeNoImageCell.self, forCellReuseIdentifier: topicNoImageCellID)
         
         //预设cell高度为 100
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 150
         
         //头部
         
@@ -118,15 +118,20 @@ class YTHomeTopicController: UITableViewController {
     }
     
 
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let topic = newsTopics[indexPath.row]
-        let cell = tableView.cellForRow(at: indexPath) as? YTHomeTopicCell
-        let height = cell?.cellHeight()
-        print("=============\(height ?? 100)")
-        return height ?? 100
+        let topic = newsTopics[indexPath.row]
+        return topic.cellHeight
     }
 
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 
     
 

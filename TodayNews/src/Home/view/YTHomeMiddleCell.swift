@@ -97,22 +97,22 @@ class YTHomeMiddleCell: YTHomeTopicCell {
         closeButtonClosure?(filterWords!)
     }
     
-    override func cellHeight() -> CGFloat {
-        if titleLabel.frame.maxY > rightImageView.frame.maxY {
-            avatarImage.snp.remakeConstraints({ (make) in
-                make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            })
-        } else {
-            avatarImage.snp.remakeConstraints({ (make) in
-                make.top.equalTo(rightImageView.snp.bottom).offset(10)
-            })
-        }
-        return avatarImage.frame.maxY
-    }
+//    override func cellHeight() -> CGFloat {
+//        if titleLabel.frame.maxY > rightImageView.frame.maxY {
+//            avatarImage.snp.makeConstraints({ (make) in
+//                make.top.equalTo(titleLabel.snp.bottom).offset(10)
+//            })
+//        } else {
+//            avatarImage.snp.makeConstraints({ (make) in
+//                make.top.equalTo(rightImageView.snp.bottom).offset(10)
+//            })
+//        }
+//        return avatarImage.y + avatarImage.height
+//    }
     
     
     
-       
+    
     
 
 }

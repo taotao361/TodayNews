@@ -57,9 +57,12 @@ class YTHomeNoImageCell: YTHomeTopicCell {
     }
     
     //cell高度
-    override func cellHeight() -> CGFloat {
-        return avatarImage.frame.maxY
-    }
+//    override func cellHeight() -> CGFloat {
+//        avatarImage.snp.makeConstraints { (make) in
+//            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+//        }
+//        return avatarImage.y + avatarImage.height
+//    }
     
     
     

@@ -38,19 +38,18 @@ class YTHomeSmallCell: YTHomeTopicCell {
                     let imageView = UIImageView.init()
                     let item = images[index]
                     let urlString = item.url!
-                    if urlString.hasPrefix(".webp") {
-                        let range = urlString.range(of: ".webp")
-                        let url = urlString.substring(with: range!)
-                        imageView.kf.setImage(with: URL.init(string: url))
+                    if urlString.hasSuffix(".webp") {
+                        let range = urlString.replacingOccurrences(of: ".webp", with: "", options: String.CompareOptions.backwards, range: nil)
+                        imageView.kf.setImage(with: URL.init(string: range))
                     } else {
                         imageView.kf.setImage(with: URL.init(string: urlString))
                     }
-                    
+                
                     let width : CGFloat = (SCREENW - CGFloat(42)) / 3
-                    let x : CGFloat = CGFloat(CGFloat(index) * width) + kMargin
+                    let x : CGFloat = CGFloat(CGFloat(index) * width)
                     print("--------------------\(x)")
                     let height : CGFloat = 70
-                    imageView.frame = CGRect.init(x: x, y: 0, width: width, height: height)
+                    imageView.frame = CGRect.init(x: (x+CGFloat.init(5*index)), y: 0, width: width, height: height)
                     middleView.addSubview(imageView)
                 }
             }
@@ -68,23 +67,22 @@ class YTHomeSmallCell: YTHomeTopicCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(middleView)
+          contentView.addSubview(middleView)
         
         middleView.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(kMargin)
             make.left.equalTo(titleLabel.snp.left)
             make.right.equalTo(titleLabel.snp.right)
-//            make.bottom.equalTo(avatarImage.snp.top).offset(-kMargin)
+            make.size.equalTo(CGSize.init(width: SCREENW-30, height: 70))
         }
     }
     
-    override func cellHeight() -> CGFloat {
-        avatarImage.snp.remakeConstraints { (make) in
-            make.top.equalTo(middleView.snp.bottom).offset(8)
-        }
-        
-        return avatarImage.frame.maxY
-    }
+//    override func cellHeight() -> CGFloat {
+//        avatarImage.snp.makeConstraints { (make) in
+//            make.top.equalTo(middleView.snp.bottom).offset(8)
+//        }
+//        return avatarImage.y + avatarImage.height + kMargin
+//    }
     
     
     required init?(coder aDecoder: NSCoder) {
