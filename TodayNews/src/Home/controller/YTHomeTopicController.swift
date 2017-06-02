@@ -129,9 +129,12 @@ class YTHomeTopicController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: topicSmallCellID) as! YTHomeSmallCell
             cell.newsTopic = topic
             cell.closeBtnDidClick({ [weak self] (filters) in
-                //按钮相对于tableView的坐标
-                let point = self?.view.convert(cell.frame.origin, from: tableView)
-                let convertPoint = CGPoint.init(x: point!.x, y: point!.y+cell.closeBtn.y)
+        
+                //某行的cell所对应的在tableView上的位置
+                let cellRectInTableView = tableView.rectForRow(at: indexPath)
+                //
+                let point = tableView.convert(cellRectInTableView, to: self!.view).origin
+                let convertPoint = CGPoint.init(x: point.x, y: point.y)
                 self?.showPopView(filters!, point: convertPoint)
             })
             return cell

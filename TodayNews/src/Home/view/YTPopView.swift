@@ -64,12 +64,12 @@ class YTPopView: UIView {
         
         arrowView.snp.makeConstraints { (make) in
             make.right.equalTo(self.snp.right).offset(-15)
-            make.bottom.equalTo(self.snp.top).offset(1)
-            make.size.equalTo(CGSize.init(width: 36, height: 2))
+            make.bottom.equalTo(self.snp.top).offset(-3)
+            make.size.equalTo(CGSize.init(width: 36, height: 5))
         }
         
         topView.snp.makeConstraints { (make) in
-            make.top.equalTo(arrowView.snp.bottom).offset(topMargin)
+            make.top.equalTo(self.snp.top).offset(topMargin)
             make.left.equalTo(self.snp.left)
             make.size.equalTo(CGSize.init(width: topViewW, height: btnH))
         }
@@ -89,8 +89,8 @@ class YTPopView: UIView {
     //
     
     fileprivate lazy var arrowView : UIImageView = {
-        let arrow = UIImageView.init(image: UIImage.init(named: "arrow_up_popup_textpage_36x8_"))
-//        arrow.frame = CGRect.init(x: 0, y: 0, width: SCREENW-30, height: 5)
+        let arrow = UIImageView.init()
+        arrow.image = UIImage.init(named: "arrow_up_popup_textpage_36x8_")
         return arrow
     }()
     

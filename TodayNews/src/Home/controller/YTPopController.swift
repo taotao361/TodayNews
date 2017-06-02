@@ -31,11 +31,11 @@ class YTPopController: YTBaseController {
         case 0:
             popView.height = 0
         case 1,2:
-            popView.height = 93
+            popView.height = 104
         case 3,4:
-            popView.height = 130
+            popView.height = 141
         case 5,6:
-            popView.height = 167
+            popView.height = 190
         default:
             popView.height = 0
         }

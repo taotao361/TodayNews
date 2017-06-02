@@ -10,7 +10,7 @@ import UIKit
 
 class YTPopViewAnimator: NSObject,UIViewControllerTransitioningDelegate,UIViewControllerAnimatedTransitioning {
     
-    //定义弹出视图的大小
+    //定义弹出视图的大小及位置
     var presentViewFrame = CGRect.zero
 
     //记录当前是否展开视图
@@ -73,8 +73,9 @@ class YTPopViewAnimator: NSObject,UIViewControllerTransitioningDelegate,UIViewCo
             transitionContext.containerView.addSubview(toView!)
             //锚点
             toView?.layer.anchorPoint = CGPoint.init(x: 1.0, y: 0.0)
+            //scale从0开始执行动画变大
             toView?.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: { 
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 toView?.transform = CGAffineTransform.identity
             }, completion: { (_) in
                 transitionContext.completeTransition(true)
@@ -82,7 +83,7 @@ class YTPopViewAnimator: NSObject,UIViewControllerTransitioningDelegate,UIViewCo
         } else {
             let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from)
             UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: { 
-                fromView?.transform = CGAffineTransform.init(scaleX: 0, y: 0)
+                fromView?.transform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
             }, completion: { (_) in
                 transitionContext.completeTransition(true)
             })
