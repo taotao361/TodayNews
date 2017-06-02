@@ -77,6 +77,38 @@ class YTHomeTopicController: UITableViewController {
     
     
     
+    /// 点击✘弹出view
+    /// - Parameters:
+    ///   - filterWords: filter数组
+    ///   - point: 相对坐标
+    fileprivate func showPopView(_ filterWords : [YTFilterWords],point : CGPoint) {
+        let popVC = YTPopController()
+        popVC.filterWords = filterWords
+        //设置专场动画的代理
+        //默认情况下，model视图控制器 会移除上一个 控制器的view，替换为当前弹出的控制器
+        //如果自定义转场动画，就不会移除上一个控制器的view
+        popVC.transitioningDelegate = popAnimator
+        switch filterWords.count {
+        case 0:
+            popAnimator.presentViewFrame = CGRect.zero
+        case 1, 2:
+            popAnimator.presentViewFrame = CGRect(x: kHomeMargin, y: point.y, width: SCREENW - 2 * kHomeMargin, height: 104)
+        case 3, 4:
+            popAnimator.presentViewFrame = CGRect(x: kHomeMargin, y: point.y, width: SCREENW - 2 * kHomeMargin, height: 141)
+        case 5, 6:
+            popAnimator.presentViewFrame = CGRect(x: kHomeMargin, y: point.y, width: SCREENW - 2 * kHomeMargin, height: 190)
+        default:
+            popAnimator.presentViewFrame = CGRect.zero
+        }
+        
+        //设置专场样式
+        popVC.modalPresentationStyle = .custom
+        present(popVC, animated: true, completion: nil)
+        
+    }
+    
+    
+    fileprivate lazy var popAnimator : YTPopViewAnimator =  YTPopViewAnimator.init()
     
 
     // MARK: - Table view data source
@@ -97,7 +129,10 @@ class YTHomeTopicController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: topicSmallCellID) as! YTHomeSmallCell
             cell.newsTopic = topic
             cell.closeBtnDidClick({ [weak self] (filters) in
-                
+                //按钮相对于tableView的坐标
+                let point = self?.view.convert(cell.frame.origin, from: tableView)
+                let convertPoint = CGPoint.init(x: point!.x, y: point!.y+cell.closeBtn.y)
+                self?.showPopView(filters!, point: convertPoint)
             })
             return cell
         } else {
