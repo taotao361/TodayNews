@@ -8,13 +8,6 @@
 
 import UIKit
 
-//extension YTHomeTopicCell {
-//    func cellHeight() ->CGFloat {
-//        return 0
-//    }
-//}
-
-
 class YTHomeTopicCell: UITableViewCell {
 
     //点击cell✘显示

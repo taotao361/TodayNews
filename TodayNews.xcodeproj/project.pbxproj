@@ -13,6 +13,7 @@
 		BC11158A1EDE7DEC009E2E0E /* YTHomeMiddleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1115891EDE7DEC009E2E0E /* YTHomeMiddleCell.swift */; };
 		BC11158C1EDE997E009E2E0E /* YTHomeLargeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11158B1EDE997E009E2E0E /* YTHomeLargeCell.swift */; };
 		BC11158E1EDEA249009E2E0E /* YTHomeNoImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC11158D1EDEA249009E2E0E /* YTHomeNoImageCell.swift */; };
+		BC1115B31EE0FFBC009E2E0E /* YTPhotoPresentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1115B21EE0FFBC009E2E0E /* YTPhotoPresentController.swift */; };
 		BCF3B1631ED80F43003B6776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1621ED80F43003B6776 /* AppDelegate.swift */; };
 		BCF3B1801ED81429003B6776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B17E1ED81429003B6776 /* Assets.xcassets */; };
 		BCF3B1831ED81976003B6776 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B1821ED81976003B6776 /* Info.plist */; };
@@ -48,6 +49,7 @@
 		BC1115891EDE7DEC009E2E0E /* YTHomeMiddleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeMiddleCell.swift; sourceTree = "<group>"; };
 		BC11158B1EDE997E009E2E0E /* YTHomeLargeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeLargeCell.swift; sourceTree = "<group>"; };
 		BC11158D1EDEA249009E2E0E /* YTHomeNoImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTHomeNoImageCell.swift; sourceTree = "<group>"; };
+		BC1115B21EE0FFBC009E2E0E /* YTPhotoPresentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTPhotoPresentController.swift; sourceTree = "<group>"; };
 		BCF3B15F1ED80F43003B6776 /* TodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF3B1621ED80F43003B6776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF3B17E1ED81429003B6776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				BCF3B1B91ED9316F003B6776 /* YTHomeController.swift */,
 				BCF3B1C51ED95FC0003B6776 /* YTHomeTopicController.swift */,
 				BCF3B1C71ED963F6003B6776 /* YTAddTopicController.swift */,
+				BC1115B21EE0FFBC009E2E0E /* YTPhotoPresentController.swift */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				BCF3B1B11ED86354003B6776 /* UIView+Extension.swift in Sources */,
 				BCF3B1C11ED9316F003B6776 /* YTHomeCategoryTitles.swift in Sources */,
 				BCF3B1CA1ED96660003B6776 /* YTTipView.swift in Sources */,
+				BC1115B31EE0FFBC009E2E0E /* YTPhotoPresentController.swift in Sources */,
 				BCF3B1851ED81A0E003B6776 /* YTBaseController.swift in Sources */,
 				BCF3B1891ED81A5E003B6776 /* YTBaseTabBarController.swift in Sources */,
 				BCF3B1921ED82045003B6776 /* YTFollowController.swift in Sources */,
