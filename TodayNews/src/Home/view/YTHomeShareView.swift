@@ -202,22 +202,29 @@ class YTHomeShareView: UIView {
 
 extension YTHomeShareView {
     fileprivate func addButton(_ scrollView : UIScrollView) {
+        
+        let leftMargin : CGFloat = 18
+        let btnW : CGFloat = 78
+        let btnY  : CGFloat = 23
+        let margin_btn_margin : CGFloat = 70
+        
         for (index,item) in shareItems.enumerated() {
-            let leftMargin : CGFloat = 18
-            let btnW : CGFloat = 78
-            let btnY  : CGFloat = 23
-            let margin_btn_margin : CGFloat = 70
+            let btnStartY =  scrollView.frame.maxY
             let shareButton = YTShareVerticalButton()
             shareButton.width = btnW
             shareButton.height = btnW
-            shareButton.y = btnY
+            shareButton.y = btnStartY
             shareButton.x = leftMargin + margin_btn_margin * CGFloat(index)
             shareButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
             shareButton.setImage(UIImage.init(named: item.icon), for: UIControlState.normal)
             shareButton.setTitle(item.title, for: UIControlState.normal)
             shareButton.setTitleColor(UIColor.black, for: UIControlState.normal)
             shareButton.addTarget(self, action: #selector(shareDidClick), for: UIControlEvents.touchUpInside)
-            scrollView.addSubview(shareButton)
+            UIView.animate(withDuration: kAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.4, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+                shareButton.y = btnY
+            }, completion: { (_) in
+                scrollView.addSubview(shareButton)
+            })
             scrollView.contentSize = CGSize.init(width: 18+CGFloat(index+1) * margin_btn_margin, height: 126)
         }
     }
