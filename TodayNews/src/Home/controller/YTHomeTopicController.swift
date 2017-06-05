@@ -14,7 +14,7 @@ let topicNoImageCellID = "topicNoImageCellID"
 let topicMiddleCellID = "topicMiddleCellID"
 
 class YTHomeTopicController: UITableViewController {
-
+    
     //上一次选中的tabBar index
     var lastSelectedIndex = 0
     // 记录点击的顶部标题
@@ -129,12 +129,11 @@ class YTHomeTopicController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: topicSmallCellID) as! YTHomeSmallCell
             cell.newsTopic = topic
             cell.closeBtnDidClick({ [weak self] (filters) in
-        
                 //某行的cell所对应的在tableView上的位置
                 let cellRectInTableView = tableView.rectForRow(at: indexPath)
                 //
-                let point = tableView.convert(cellRectInTableView, to: self!.view).origin
-                let convertPoint = CGPoint.init(x: point.x, y: point.y)
+                let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
+                let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
                 self?.showPopView(filters!, point: convertPoint)
             })
             return cell
@@ -144,14 +143,24 @@ class YTHomeTopicController: UITableViewController {
                     let cell = tableView.dequeueReusableCell(withIdentifier: topicLargeCellID) as! YTHomeLargeCell
                     cell.newTopic = topic
                     cell.closeBtnDidClick({ (filters) in
-                        
+                        //某行的cell所对应的在tableView上的位置
+                        let cellRectInTableView = tableView.rectForRow(at: indexPath)
+                        //
+                        let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
+                        let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
+                        self.showPopView(filters!, point: convertPoint)
                     })
                     return cell
                 } else {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: topicMiddleCellID) as! YTHomeMiddleCell
                     cell.newTopic = topic
                     cell.closeBtnDidClick({ (filters) in
-                        
+                        //某行的cell所对应的在tableView上的位置
+                        let cellRectInTableView = tableView.rectForRow(at: indexPath)
+                        //
+                        let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
+                        let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
+                        self.showPopView(filters!, point: convertPoint)
                     })
                     return cell
                 }
@@ -159,7 +168,12 @@ class YTHomeTopicController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: topicNoImageCellID) as! YTHomeNoImageCell
                 cell.newsTopic = topic
                 cell.closeBtnDidClick({ (filters) in
-                    
+                    //某行的cell所对应的在tableView上的位置
+                    let cellRectInTableView = tableView.rectForRow(at: indexPath)
+                    //
+                    let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
+                    let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
+                    self.showPopView(filters!, point: convertPoint)
                 })
                 return cell
             }
