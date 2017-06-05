@@ -129,12 +129,7 @@ class YTHomeTopicController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: topicSmallCellID) as! YTHomeSmallCell
             cell.newsTopic = topic
             cell.closeBtnDidClick({ [weak self] (filters) in
-                //某行的cell所对应的在tableView上的位置
-                let cellRectInTableView = tableView.rectForRow(at: indexPath)
-                //
-                let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
-                let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
-                self?.showPopView(filters!, point: convertPoint)
+                self?.show(tableView: tableView, indexPath: indexPath, cell: cell, filters: filters!)
             })
             return cell
         } else {
@@ -143,24 +138,14 @@ class YTHomeTopicController: UITableViewController {
                     let cell = tableView.dequeueReusableCell(withIdentifier: topicLargeCellID) as! YTHomeLargeCell
                     cell.newTopic = topic
                     cell.closeBtnDidClick({ (filters) in
-                        //某行的cell所对应的在tableView上的位置
-                        let cellRectInTableView = tableView.rectForRow(at: indexPath)
-                        //
-                        let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
-                        let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
-                        self.showPopView(filters!, point: convertPoint)
+                        self.show(tableView: tableView, indexPath: indexPath, cell: cell, filters: filters!)
                     })
                     return cell
                 } else {
                     let cell  = tableView.dequeueReusableCell(withIdentifier: topicMiddleCellID) as! YTHomeMiddleCell
                     cell.newTopic = topic
                     cell.closeBtnDidClick({ (filters) in
-                        //某行的cell所对应的在tableView上的位置
-                        let cellRectInTableView = tableView.rectForRow(at: indexPath)
-                        //
-                        let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
-                        let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
-                        self.showPopView(filters!, point: convertPoint)
+                        self.show(tableView: tableView, indexPath: indexPath, cell: cell, filters: filters!)
                     })
                     return cell
                 }
@@ -168,12 +153,7 @@ class YTHomeTopicController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: topicNoImageCellID) as! YTHomeNoImageCell
                 cell.newsTopic = topic
                 cell.closeBtnDidClick({ (filters) in
-                    //某行的cell所对应的在tableView上的位置
-                    let cellRectInTableView = tableView.rectForRow(at: indexPath)
-                    //
-                    let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
-                    let convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
-                    self.showPopView(filters!, point: convertPoint)
+                self.show(tableView: tableView, indexPath: indexPath, cell: cell, filters: filters!)
                 })
                 return cell
             }
@@ -194,8 +174,24 @@ class YTHomeTopicController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let news = newsTopics[indexPath.row]
+        let detailVC = YTHomeDetailController()
+        detailVC.newsTopic = news
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
+    
+    //点击✘显示
+    fileprivate func show(tableView : UITableView,indexPath : IndexPath,cell : YTHomeTopicCell,filters : [YTFilterWords]) {
+        //某行的cell所对应的在tableView上的位置
+        let cellRectInTableView = tableView.rectForRow(at: indexPath)
+        let point = tableView.convert(cellRectInTableView, to: tableView.superview).origin
+        var convertPoint = CGPoint.init(x: point.x, y: point.y+cell.closeBtn.y)
+        if convertPoint.y > SCREENH {
+            convertPoint.y -= SCREENH
+        }
+        showPopView(filters, point: convertPoint)
+    }
     
 
 }
