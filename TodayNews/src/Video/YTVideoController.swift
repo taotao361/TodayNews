@@ -10,26 +10,52 @@ import UIKit
 
 class YTVideoController: YTBaseController {
 
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override func loadView() {
+        super.loadView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //position这个点到底要显示在哪里，由锚点决定，锚点又称定位点
+        
+//        let lay1 = CALayer.init()
+//        lay1.position = CGPoint.init(x: 150, y: 200)
+////        lay1.anchorPoint = CGPoint.init(x: 0.5, y: 0.5)  锚点默认为0.5
+//        lay1.backgroundColor = UIColor.red.cgColor
+//        lay1.bounds = CGRect.init(x: 0, y: 0, width: 100, height: 100)
+//        view.layer.addSublayer(lay1)
+//        
+//        
+//        let lay2 = CALayer.init()
+//        lay2.position = CGPoint.init(x: 150, y: 200)
+//        lay2.anchorPoint = CGPoint.init(x: 0, y: 0)
+//        lay2.backgroundColor = UIColor.green.cgColor
+//        lay2.bounds = CGRect.init(x: 0, y: 0, width: 100, height: 100)
+//        view.layer.addSublayer(lay2)
+//        
+////        CAAnimation
+        
+        
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

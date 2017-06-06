@@ -25,6 +25,13 @@
 		BC1EC0B11EE51690005EB162 /* YMMineCellPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC0AE1EE51690005EB162 /* YMMineCellPlist.plist */; };
 		BC1EC0B21EE51690005EB162 /* YMSettingPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC0AF1EE51690005EB162 /* YMSettingPlist.plist */; };
 		BC1EC0B31EE51690005EB162 /* YMSharePlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC0B01EE51690005EB162 /* YMSharePlist.plist */; };
+		BC1EC0F71EE6AC06005EB162 /* YTConcernModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC0F61EE6AC06005EB162 /* YTConcernModel.swift */; };
+		BC1EC0FA1EE6B752005EB162 /* YTCareNoLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC0F81EE6B752005EB162 /* YTCareNoLoginCell.swift */; };
+		BC1EC0FB1EE6B752005EB162 /* YTCareNoLoginCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC0F91EE6B752005EB162 /* YTCareNoLoginCell.xib */; };
+		BC1EC0FE1EE6B9A4005EB162 /* YTCareBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC0FC1EE6B9A4005EB162 /* YTCareBottomCell.swift */; };
+		BC1EC0FF1EE6B9A4005EB162 /* YTCareBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC0FD1EE6B9A4005EB162 /* YTCareBottomCell.xib */; };
+		BC1EC1021EE6BCEC005EB162 /* YTCareTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC1001EE6BCEC005EB162 /* YTCareTopCell.swift */; };
+		BC1EC1031EE6BCEC005EB162 /* YTCareTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC1011EE6BCEC005EB162 /* YTCareTopCell.xib */; };
 		BCF3B1631ED80F43003B6776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1621ED80F43003B6776 /* AppDelegate.swift */; };
 		BCF3B1801ED81429003B6776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B17E1ED81429003B6776 /* Assets.xcassets */; };
 		BCF3B1831ED81976003B6776 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B1821ED81976003B6776 /* Info.plist */; };
@@ -72,6 +79,13 @@
 		BC1EC0AE1EE51690005EB162 /* YMMineCellPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YMMineCellPlist.plist; sourceTree = "<group>"; };
 		BC1EC0AF1EE51690005EB162 /* YMSettingPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YMSettingPlist.plist; sourceTree = "<group>"; };
 		BC1EC0B01EE51690005EB162 /* YMSharePlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YMSharePlist.plist; sourceTree = "<group>"; };
+		BC1EC0F61EE6AC06005EB162 /* YTConcernModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTConcernModel.swift; sourceTree = "<group>"; };
+		BC1EC0F81EE6B752005EB162 /* YTCareNoLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTCareNoLoginCell.swift; sourceTree = "<group>"; };
+		BC1EC0F91EE6B752005EB162 /* YTCareNoLoginCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTCareNoLoginCell.xib; sourceTree = "<group>"; };
+		BC1EC0FC1EE6B9A4005EB162 /* YTCareBottomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTCareBottomCell.swift; sourceTree = "<group>"; };
+		BC1EC0FD1EE6B9A4005EB162 /* YTCareBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTCareBottomCell.xib; sourceTree = "<group>"; };
+		BC1EC1001EE6BCEC005EB162 /* YTCareTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTCareTopCell.swift; sourceTree = "<group>"; };
+		BC1EC1011EE6BCEC005EB162 /* YTCareTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTCareTopCell.xib; sourceTree = "<group>"; };
 		BCF3B15F1ED80F43003B6776 /* TodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF3B1621ED80F43003B6776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF3B17E1ED81429003B6776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,6 +242,13 @@
 			isa = PBXGroup;
 			children = (
 				BCF3B1911ED82045003B6776 /* YTFollowController.swift */,
+				BC1EC0F61EE6AC06005EB162 /* YTConcernModel.swift */,
+				BC1EC0F81EE6B752005EB162 /* YTCareNoLoginCell.swift */,
+				BC1EC0F91EE6B752005EB162 /* YTCareNoLoginCell.xib */,
+				BC1EC0FC1EE6B9A4005EB162 /* YTCareBottomCell.swift */,
+				BC1EC0FD1EE6B9A4005EB162 /* YTCareBottomCell.xib */,
+				BC1EC1001EE6BCEC005EB162 /* YTCareTopCell.swift */,
+				BC1EC1011EE6BCEC005EB162 /* YTCareTopCell.xib */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -371,6 +392,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCF3B1831ED81976003B6776 /* Info.plist in Resources */,
+				BC1EC0FB1EE6B752005EB162 /* YTCareNoLoginCell.xib in Resources */,
+				BC1EC1031EE6BCEC005EB162 /* YTCareTopCell.xib in Resources */,
+				BC1EC0FF1EE6B9A4005EB162 /* YTCareBottomCell.xib in Resources */,
 				BC1EC0AB1EE4FEC7005EB162 /* YTHomeDetailBottomView.xib in Resources */,
 				BC1EC0B11EE51690005EB162 /* YMMineCellPlist.plist in Resources */,
 				BC1EC0B21EE51690005EB162 /* YMSettingPlist.plist in Resources */,
@@ -438,6 +462,7 @@
 				BCF3B1AE1ED86354003B6776 /* UIImage+Extendion.swift in Sources */,
 				BCF3B1AD1ED86354003B6776 /* NSString+Extension.swift in Sources */,
 				BCF3B1C61ED95FC0003B6776 /* YTHomeTopicController.swift in Sources */,
+				BC1EC0FA1EE6B752005EB162 /* YTCareNoLoginCell.swift in Sources */,
 				BC1115B51EE11370009E2E0E /* YTPopController.swift in Sources */,
 				BC1115B91EE13CA6009E2E0E /* YTPopViewAnimator.swift in Sources */,
 				BCF3B1C01ED9316F003B6776 /* YTBaseModel.swift in Sources */,
@@ -446,11 +471,14 @@
 				BC1115BB1EE14675009E2E0E /* YTPopPresentationController.swift in Sources */,
 				BCF3B1C21ED9316F003B6776 /* YTNewsTopic.swift in Sources */,
 				BCF3B1871ED81A3F003B6776 /* YTBaseNavController.swift in Sources */,
+				BC1EC1021EE6BCEC005EB162 /* YTCareTopCell.swift in Sources */,
 				BCF3B1B21ED86354003B6776 /* YTConstant.swift in Sources */,
 				BC11158C1EDE997E009E2E0E /* YTHomeLargeCell.swift in Sources */,
 				BC1EC0A71EE4FA39005EB162 /* YTHomeDetailController.swift in Sources */,
 				BCF3B18F1ED81FA6003B6776 /* YTMineController.swift in Sources */,
 				BC11158E1EDEA249009E2E0E /* YTHomeNoImageCell.swift in Sources */,
+				BC1EC0FE1EE6B9A4005EB162 /* YTCareBottomCell.swift in Sources */,
+				BC1EC0F71EE6AC06005EB162 /* YTConcernModel.swift in Sources */,
 				BCF3B1AF1ED86354003B6776 /* UIImageView+Extension.swift in Sources */,
 				BC11158A1EDE7DEC009E2E0E /* YTHomeMiddleCell.swift in Sources */,
 				BC1115B71EE1148B009E2E0E /* YTPopView.swift in Sources */,

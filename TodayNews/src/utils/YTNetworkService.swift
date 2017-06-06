@@ -129,6 +129,57 @@ class YTNetworkService: NSObject {
     
     
     
+    //关心数据列表
+    func loadConcernDatas(_ finish : @escaping (_ topConcern : [YTConcernModel],_ bottomConcern : [YTConcernModel]) -> Void) {
+        let url = BASE_URL + "concern/v1/concern/list/"
+        let paras = ["iid":IID,"count" : 20,"offset":0,"type":"manage"] as [String : Any]
+        Alamofire.request(url, method: .post, parameters: paras, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            if let value = response.result.value {
+                let json = JSON.init(value)
+                if let concern_list = json["concern_list"].arrayObject {
+                    var top = [YTConcernModel]()
+                    var bottom = [YTConcernModel]()
+                    for dic in concern_list {
+                        let concern = YTConcernModel.init(dic: dic as! [String : AnyObject])
+                        concern.concern_time != 0 ? top.append(concern) : bottom.append(concern)
+                    }
+                    finish(top,bottom)
+                }
+            }
+        }
+    }
+    
+    
+    //获取更多 关心数据
+    func laodMoreConcernDatas(_ tableView : UITableView,outOffset : Int,_ finish : @escaping (_ inOffset : Int,_ top : [YTConcernModel],_ bottom : [YTConcernModel]) -> Void) {
+        let url = BASE_URL + "concern/v1/concern/list/"
+        let paras = ["iid" : IID,"count":20,"offset":outOffset,"type":"manage"] as [String:Any]
+        tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: { 
+            Alamofire.request(url, method: .post, parameters: paras, encoding: URLEncoding.default, headers: nil).responseJSON(completionHandler: { (response) in
+                guard response.result.isSuccess else {
+                    SVProgressHUD.showError(withStatus: "加载失败")
+                    return
+                }
+                if let value = response.result.value {
+                    let json = JSON.init(value)
+                    let inOffset = json["offset"].int!
+                    if let concern_list = json["concern_list"].arrayObject {
+                        var top = [YTConcernModel]()
+                        var bottom = [YTConcernModel].init()
+                        for dic in concern_list {
+                            let concern = YTConcernModel.init(dic: dic as! [String : AnyObject])
+                            (concern.concern_time != 0) ? top.append(concern) : bottom.append(concern)
+                        }
+                        finish(inOffset,top,bottom)
+                    }
+                }
+            })
+        })
+    }
     
     
     
