@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class YTCareTopCell: UITableViewCell {
 
+    
+    var concern : YTConcernModel? {
+        didSet {
+            iconImage.kf.setImage(with: concern?.avatar_url as? Resource)
+            titleLabel.text = concern?.name
+        }
+    }
+    
+    
     
     @IBOutlet weak var iconImage: UIImageView!
     

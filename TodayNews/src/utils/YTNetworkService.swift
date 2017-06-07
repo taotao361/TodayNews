@@ -34,7 +34,7 @@ class YTNetworkService: NSObject {
                 if let value = response.result.value {
                     let json = JSON.init(value)//转换字典
                     let jsonDatas = json["data"].array //数据数组
-                    print("================  \(jsonDatas)")
+                    print("================  \(String(describing: jsonDatas))")
                     var newsList = [YTNewsTopic].init()
                     for data in jsonDatas! {
                         let content = data["content"].stringValue
@@ -155,7 +155,7 @@ class YTNetworkService: NSObject {
     
     
     //获取更多 关心数据
-    func laodMoreConcernDatas(_ tableView : UITableView,outOffset : Int,_ finish : @escaping (_ inOffset : Int,_ top : [YTConcernModel],_ bottom : [YTConcernModel]) -> Void) {
+    func loadMoreConcernDatas(_ tableView : UITableView,outOffset : Int,_ finish : @escaping (_ inOffset : Int,_ top : [YTConcernModel],_ bottom : [YTConcernModel]) -> Void) {
         let url = BASE_URL + "concern/v1/concern/list/"
         let paras = ["iid" : IID,"count":20,"offset":outOffset,"type":"manage"] as [String:Any]
         tableView.mj_footer = MJRefreshAutoNormalFooter.init(refreshingBlock: { 
