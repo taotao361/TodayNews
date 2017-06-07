@@ -32,6 +32,10 @@
 		BC1EC0FF1EE6B9A4005EB162 /* YTCareBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC0FD1EE6B9A4005EB162 /* YTCareBottomCell.xib */; };
 		BC1EC1021EE6BCEC005EB162 /* YTCareTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC1001EE6BCEC005EB162 /* YTCareTopCell.swift */; };
 		BC1EC1031EE6BCEC005EB162 /* YTCareTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC1011EE6BCEC005EB162 /* YTCareTopCell.xib */; };
+		BC1EC1091EE7E8C9005EB162 /* YTMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC1081EE7E8C9005EB162 /* YTMineHeaderView.swift */; };
+		BC1EC10C1EE7F198005EB162 /* YTMineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC10A1EE7F198005EB162 /* YTMineCell.swift */; };
+		BC1EC10D1EE7F198005EB162 /* YTMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC1EC10B1EE7F198005EB162 /* YTMineCell.xib */; };
+		BC1EC10F1EE7F39C005EB162 /* YTMineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1EC10E1EE7F39C005EB162 /* YTMineModel.swift */; };
 		BCF3B1631ED80F43003B6776 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF3B1621ED80F43003B6776 /* AppDelegate.swift */; };
 		BCF3B1801ED81429003B6776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B17E1ED81429003B6776 /* Assets.xcassets */; };
 		BCF3B1831ED81976003B6776 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCF3B1821ED81976003B6776 /* Info.plist */; };
@@ -86,6 +90,10 @@
 		BC1EC0FD1EE6B9A4005EB162 /* YTCareBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTCareBottomCell.xib; sourceTree = "<group>"; };
 		BC1EC1001EE6BCEC005EB162 /* YTCareTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTCareTopCell.swift; sourceTree = "<group>"; };
 		BC1EC1011EE6BCEC005EB162 /* YTCareTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTCareTopCell.xib; sourceTree = "<group>"; };
+		BC1EC1081EE7E8C9005EB162 /* YTMineHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTMineHeaderView.swift; sourceTree = "<group>"; };
+		BC1EC10A1EE7F198005EB162 /* YTMineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTMineCell.swift; sourceTree = "<group>"; };
+		BC1EC10B1EE7F198005EB162 /* YTMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YTMineCell.xib; sourceTree = "<group>"; };
+		BC1EC10E1EE7F39C005EB162 /* YTMineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YTMineModel.swift; sourceTree = "<group>"; };
 		BCF3B15F1ED80F43003B6776 /* TodayNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF3B1621ED80F43003B6776 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCF3B17E1ED81429003B6776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +234,10 @@
 			isa = PBXGroup;
 			children = (
 				BCF3B18E1ED81FA6003B6776 /* YTMineController.swift */,
+				BC1EC1081EE7E8C9005EB162 /* YTMineHeaderView.swift */,
+				BC1EC10A1EE7F198005EB162 /* YTMineCell.swift */,
+				BC1EC10B1EE7F198005EB162 /* YTMineCell.xib */,
+				BC1EC10E1EE7F39C005EB162 /* YTMineModel.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -400,6 +412,7 @@
 				BC1EC0B21EE51690005EB162 /* YMSettingPlist.plist in Resources */,
 				BCF3B1801ED81429003B6776 /* Assets.xcassets in Resources */,
 				BC1EC0B31EE51690005EB162 /* YMSharePlist.plist in Resources */,
+				BC1EC10D1EE7F198005EB162 /* YTMineCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +475,7 @@
 				BCF3B1AE1ED86354003B6776 /* UIImage+Extendion.swift in Sources */,
 				BCF3B1AD1ED86354003B6776 /* NSString+Extension.swift in Sources */,
 				BCF3B1C61ED95FC0003B6776 /* YTHomeTopicController.swift in Sources */,
+				BC1EC10C1EE7F198005EB162 /* YTMineCell.swift in Sources */,
 				BC1EC0FA1EE6B752005EB162 /* YTCareNoLoginCell.swift in Sources */,
 				BC1115B51EE11370009E2E0E /* YTPopController.swift in Sources */,
 				BC1115B91EE13CA6009E2E0E /* YTPopViewAnimator.swift in Sources */,
@@ -471,12 +485,14 @@
 				BC1115BB1EE14675009E2E0E /* YTPopPresentationController.swift in Sources */,
 				BCF3B1C21ED9316F003B6776 /* YTNewsTopic.swift in Sources */,
 				BCF3B1871ED81A3F003B6776 /* YTBaseNavController.swift in Sources */,
+				BC1EC1091EE7E8C9005EB162 /* YTMineHeaderView.swift in Sources */,
 				BC1EC1021EE6BCEC005EB162 /* YTCareTopCell.swift in Sources */,
 				BCF3B1B21ED86354003B6776 /* YTConstant.swift in Sources */,
 				BC11158C1EDE997E009E2E0E /* YTHomeLargeCell.swift in Sources */,
 				BC1EC0A71EE4FA39005EB162 /* YTHomeDetailController.swift in Sources */,
 				BCF3B18F1ED81FA6003B6776 /* YTMineController.swift in Sources */,
 				BC11158E1EDEA249009E2E0E /* YTHomeNoImageCell.swift in Sources */,
+				BC1EC10F1EE7F39C005EB162 /* YTMineModel.swift in Sources */,
 				BC1EC0FE1EE6B9A4005EB162 /* YTCareBottomCell.swift in Sources */,
 				BC1EC0F71EE6AC06005EB162 /* YTConcernModel.swift in Sources */,
 				BCF3B1AF1ED86354003B6776 /* UIImageView+Extension.swift in Sources */,
