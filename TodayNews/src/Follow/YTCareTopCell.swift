@@ -15,7 +15,7 @@ class YTCareTopCell: UITableViewCell {
     
     var concern : YTConcernModel? {
         didSet {
-            iconImage.kf.setImage(with: concern?.avatar_url as? Resource)
+            iconImage.kf.setImage(with: URL.init(string: concern!.avatar_url))
             titleLabel.text = concern?.name
         }
     }

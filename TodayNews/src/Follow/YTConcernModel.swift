@@ -33,6 +33,7 @@ class YTConcernModel: NSObject {
         newly = dic["newly"] as! Int
         new_thread_count = dic["new_thread_count"] as! Int
         discuss_count = dic["discuss_count"] as! Int
+        avatar_url = dic["avatar_url"] as! String
     }
     
 }

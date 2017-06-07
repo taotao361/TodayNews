@@ -29,6 +29,7 @@ class YTFollowController: YTBaseController {
 
         setupUI()
         refresh()
+        loadMore()
     }
 
 
@@ -40,13 +41,15 @@ class YTFollowController: YTBaseController {
         view.addSubview(tableView)
         tableView.frame = CGRect.init(x: 0, y: 0, width: SCREENW, height: SCREENH)
         
-        let refreshHeader = MJRefreshStateHeader.init { [weak self] in
-            self!.refresh()
+        let refreshHeader = MJRefreshStateHeader.init()
+        refreshHeader.beginRefreshing {
+            self.refresh()
         }
-        refreshHeader?.setTitle("下拉刷新数据", for: MJRefreshState.idle)
-        refreshHeader?.setTitle("松手即可刷新", for: MJRefreshState.pulling)
-        refreshHeader?.setTitle("正在刷新数据中。。。", for: MJRefreshState.refreshing)
+        refreshHeader.setTitle("下拉刷新数据", for: MJRefreshState.idle)
+        refreshHeader.setTitle("松手即可刷新", for: MJRefreshState.pulling)
+        refreshHeader.setTitle("正在刷新数据中。。。", for: MJRefreshState.refreshing)
         tableView.mj_header = refreshHeader
+        tableView.mj_header.beginRefreshing()
         
         
         //注册cell
@@ -63,22 +66,22 @@ class YTFollowController: YTBaseController {
     }
     
     fileprivate func refresh() {
-        tableView.mj_header.beginRefreshing()
         YTNetworkService.shareNetService.loadConcernDatas { [weak self] (tops, bottoms) in
             self!.tableView.mj_header.endRefreshing()
             self!.topConcernModels.removeAll()
             self!.bottomConcernModels.removeAll()
-            self!.topConcernModels = tops
-            self!.bottomConcernModels = bottoms
+//            self!.topConcernModels = tops
+            self!.bottomConcernModels = tops
             self!.tableView .reloadData()
         }
     }
     
     fileprivate func loadMore() {
-        YTNetworkService.shareNetService.loadMoreConcernDatas(tableView, outOffset: 5) { (inOffset, tops, bottoms) in
-            self.topConcernModels += tops
-            self.bottomConcernModels += bottoms
-            self.tableView.reloadData()
+        YTNetworkService.shareNetService.loadMoreConcernDatas(tableView, outOffset: 5) { [weak self] (inOffset, tops, bottoms) in
+            self!.tableView.mj_footer.endRefreshing()
+            self!.topConcernModels += tops
+            self!.bottomConcernModels += bottoms
+            self!.tableView.reloadData()
         }
     }
     
@@ -114,8 +117,10 @@ extension YTFollowController : UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 { return topConcernModels.count }
-        else { return bottomConcernModels.count }
+        if section == 0 {
+            if topConcernModels.count == 0 { return 1 }
+            return topConcernModels.count
+        } else { return bottomConcernModels.count }
         
     }
     
@@ -152,7 +157,7 @@ extension YTFollowController : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        print(#function)
     }
     
     
