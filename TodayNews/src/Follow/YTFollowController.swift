@@ -90,7 +90,7 @@ class YTFollowController: YTBaseController {
        let tableView : UITableView = UITableView.init(frame: CGRect.zero, style: UITableViewStyle.plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         return tableView
     }()
     

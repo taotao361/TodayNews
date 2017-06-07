@@ -9,6 +9,7 @@
 import UIKit
 
 let mineCell = "YTMineCell"
+let headerViewIdentifier = "headerViewIdentifier"
 
 class YTMineController: YTBaseController {
 
@@ -24,14 +25,15 @@ class YTMineController: YTBaseController {
 
         loadData()
         view.addSubview(tableView)
+
         //
         let islogin = true
-        let headerView = YTMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENW, height: islogin ? 248 : 248))
+        let headerView = YTMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENW, height: islogin ? 278 : 248))
         headerView.isLogin = islogin
         tableView.tableHeaderView = headerView
         let mineNibCell = UINib.init(nibName: "YTMineCell", bundle: nil)
         tableView.register(mineNibCell, forCellReuseIdentifier: mineCell)
-        
+//        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
     }
 
 
@@ -54,6 +56,8 @@ class YTMineController: YTBaseController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .singleLine
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
         return tableView
     }()
     
@@ -67,6 +71,7 @@ extension YTMineController : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let itemArr = cellItems[section] as? NSArray
+//        print("================\(itemArr!.count)")
         return itemArr!.count
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,9 +83,24 @@ extension YTMineController : UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView.init()
-        header.backgroundColor = YMColor(243.0, g: 246.0, b: 246.0, a: 1.0)
-        return header
+        //header 复用
+//        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: headerViewIdentifier)
+//        if header != nil {
+//            return header
+//        } else {
+            let header = UIView.init()
+            header.backgroundColor = YMColor(243.0, g: 246.0, b: 246.0, a: 1.0)
+            return header
+//        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView.init()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

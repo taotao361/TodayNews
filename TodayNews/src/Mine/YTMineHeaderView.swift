@@ -19,7 +19,7 @@ enum ItemType : Int {
 class YTMineHeaderView: UIView {
 
     //模拟登陆状态 默认未登录
-    var isLogin : Bool = false
+    var isLogin : Bool = true
     
     override init(frame: CGRect) {
         super.init(frame: frame)
