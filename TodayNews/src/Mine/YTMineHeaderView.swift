@@ -34,6 +34,9 @@ class YTMineHeaderView: UIView {
         var header : UIView?
         if isLogin {
             header = YTLoginedHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENW, height: 210))
+            let head =  (header as! YTLoginedHeaderView)
+            head.avatarUrl = "http://p3.pstatp.com/thumb/3507/2011508621"
+            head.name = "今日头条"
         } else {
             header = YTNoLoginedHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENW, height: 181))
         }
@@ -44,8 +47,7 @@ class YTMineHeaderView: UIView {
     
     
     fileprivate func loadBottomItems() {
-        
-        let backView = UIView.init(frame: CGRect.init(x: 0, y: isLogin ? 210 : 181, width: SCREENW, height: 67))
+        let backView = UIView.init(frame: CGRect.init(x: 0, y: isLogin ? 210 : 181, width: SCREENW, height: 66.5))
         backView.backgroundColor = UIColor.clear
         addSubview(backView)
         
@@ -73,6 +75,10 @@ class YTMineHeaderView: UIView {
             btn.addTarget(self, action: #selector(bottomBtnDidClick(_:)), for: UIControlEvents.touchUpInside)
             backView.addSubview(btn)
         }
+        
+        let line = UIImageView.init(frame: CGRect.init(x: 0, y: 66.5, width: backView.width, height: 0.5))
+        line.backgroundColor = UIColor.lightGray
+        backView.addSubview(line)
     }
     
    @objc fileprivate func bottomBtnDidClick(_ btn : UIButton) {
@@ -198,6 +204,7 @@ class YTLoginedHeaderView: UIView {
     var avatarUrl : String? {
         didSet {
             avatarImageView.kf.setImage(with: URL.init(string: avatarUrl!))
+            backImage.kf.setImage(with: URL.init(string: avatarUrl!))
         }
     }
     var name : String? {
@@ -216,12 +223,16 @@ class YTLoginedHeaderView: UIView {
     }
     
     fileprivate func  setupUI() {
+        //模糊效果
+        addSubview(backImage)
+        backImage.frame = self.bounds
         addSubview(blurView)
+        
         addSubview(avatarImageView)
         addSubview(nameLabel)
+        blurView.size = CGSize.init(width: self.width, height: self.height)
         
         let avatarW : CGFloat = 69
-        
         blurView.snp.makeConstraints { (make) in
             make.edges.equalTo(self)
         }
@@ -240,17 +251,24 @@ class YTLoginedHeaderView: UIView {
         
     }
     
+    //模糊效果
     fileprivate lazy var blurView : UIVisualEffectView = {
         let blurEffect = UIBlurEffect.init(style: UIBlurEffectStyle.light)
         let blurView = UIVisualEffectView.init(effect: blurEffect)
         return blurView
     }()
     
+    //底部大图，上边加模糊效果view
+    fileprivate lazy var backImage : UIImageView = {
+       let blurImage = UIImageView.init()
+        return blurImage
+    }()
+    
     
     fileprivate lazy var avatarImageView : UIImageView = {
         let avatar = UIImageView.init()
         avatar.layer.masksToBounds = true
-        avatar.layer.cornerRadius = avatar.width/2
+        avatar.layer.cornerRadius = 34.5
         return avatar
     }()
     

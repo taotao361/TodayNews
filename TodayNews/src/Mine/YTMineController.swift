@@ -22,18 +22,13 @@ class YTMineController: YTBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let tableView = UITableView.init(frame: view.bounds, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorStyle = .singleLine
+        loadData()
         view.addSubview(tableView)
-        
         //
-        let islogin = false
-        let headerView = YTMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENW, height: islogin ? 261 : 248))
+        let islogin = true
+        let headerView = YTMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENW, height: islogin ? 248 : 248))
         headerView.isLogin = islogin
         tableView.tableHeaderView = headerView
-        
         let mineNibCell = UINib.init(nibName: "YTMineCell", bundle: nil)
         tableView.register(mineNibCell, forCellReuseIdentifier: mineCell)
         
@@ -41,7 +36,7 @@ class YTMineController: YTBaseController {
 
 
     fileprivate func loadData() {
-        let path = Bundle.main.path(forResource: "YMMineCellPlist.plsit", ofType: nil)
+        let path = Bundle.main.path(forResource: "YMMineCellPlist.plist", ofType: nil)
         let itemsArr = NSArray.init(contentsOf: URL.init(fileURLWithPath: path!))
         for arr in itemsArr! {
             var sections = [AnyObject]()
@@ -54,6 +49,13 @@ class YTMineController: YTBaseController {
     }
     
     
+    fileprivate lazy var tableView : UITableView = {
+        let tableView = UITableView.init(frame: self.view.bounds, style: .plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .singleLine
+        return tableView
+    }()
     
     
     
@@ -77,7 +79,7 @@ extension YTMineController : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView.init()
-        header.backgroundColor = UIColor.gray
+        header.backgroundColor = YMColor(243.0, g: 246.0, b: 246.0, a: 1.0)
         return header
     }
     
@@ -93,6 +95,11 @@ extension YTMineController : UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
     
 }
 

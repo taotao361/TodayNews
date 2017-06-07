@@ -24,7 +24,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEU-bI-Py3">
-                        <rect key="frame" x="30" y="15" width="60" height="20"/>
+                        <rect key="frame" x="30" y="15" width="80" height="20"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -36,7 +36,7 @@
                         <state key="normal" image="arrow_right_setup_12x16_"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhm-dq-Z8k" userLabel="subtitleLabel">
-                        <rect key="frame" x="79" y="21" width="42" height="21"/>
+                        <rect key="frame" x="79" y="21" width="150" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.89791598669999995" green="0.24068951929999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,8 +45,7 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="rightLabel" destination="Qhm-dq-Z8k" id="KDW-1C-MCu"/>
-                <outlet property="subtitleLabel" destination="Qhm-dq-Z8k" id="agx-fm-a4N"/>
+                <outlet property="subtitleLabel" destination="Qhm-dq-Z8k" id="9Oo-kq-Gph"/>
                 <outlet property="titleLable" destination="gEU-bI-Py3" id="ewC-td-3V8"/>
             </connections>
             <point key="canvasLocation" x="-72" y="16"/>
