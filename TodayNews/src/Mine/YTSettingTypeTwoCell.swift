@@ -10,9 +10,33 @@ import UIKit
 
 class YTSettingTypeTwoCell: UITableViewCell {
 
+    var model : YTMineSettingModel? {
+        didSet {
+            titleLable.text = model?.title
+            subtitleLable.text = model?.subtitle
+            subtitleLable.isHidden = (model?.isHiddenSubtitle)!
+        }
+    }
+
+    
+    
+    @IBOutlet weak var titleLable: UILabel!
+    
+    @IBOutlet weak var subtitleLable: UILabel!
+    
+    @IBOutlet weak var switchBtn: UISwitch!
+    
+    @IBAction func switchDidClick(_ sender: UISwitch) {
+        print(#function)
+        
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

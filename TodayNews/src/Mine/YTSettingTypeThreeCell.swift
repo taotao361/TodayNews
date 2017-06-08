@@ -10,6 +10,20 @@ import UIKit
 
 class YTSettingTypeThreeCell: UITableViewCell {
 
+    var model : YTMineSettingModel? {
+        didSet {
+            titleLabel.text = model?.title
+            rightLable.text = model?.rightTitle
+        }
+    }
+
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var rightLable: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
