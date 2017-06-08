@@ -61,7 +61,7 @@ class YTPopViewAnimator: NSObject,UIViewControllerTransitioningDelegate,UIViewCo
     //只要实现了下面两个方法，那么系统默认就没有了，所有东西都需要自己实现
     //动画时长
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 0.8
+        return 0.6
     }
     
     //动画实现
@@ -75,7 +75,7 @@ class YTPopViewAnimator: NSObject,UIViewControllerTransitioningDelegate,UIViewCo
             toView?.layer.anchorPoint = CGPoint.init(x: 1.0, y: 0.0)
             //scale从0开始执行动画变大
             toView?.transform = CGAffineTransform.init(scaleX: 0.0, y: 0.0)
-            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
+            UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: UIViewAnimationOptions.curveEaseInOut, animations: {
                 toView?.transform = CGAffineTransform.identity
             }, completion: { (_) in
                 transitionContext.completeTransition(true)
