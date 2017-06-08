@@ -34,7 +34,7 @@ class YTCareTopCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // Initialization cod
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

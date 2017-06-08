@@ -41,7 +41,12 @@ class YTCareBottomCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        careBtn.layer.masksToBounds = true
+        careBtn.layer.cornerRadius = 5
+        careBtn.layer.borderWidth = 0.6
+        careBtn.layer.borderColor =  YMColor(91, g: 162, b: 207, a: 1.0).cgColor
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
