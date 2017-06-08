@@ -18,6 +18,9 @@ enum ItemType : Int {
 
 class YTMineHeaderView: UIView {
 
+    
+    var bottomItemDidClick : ((_ item : UIButton) ->Void)?
+    
     //模拟登陆状态 默认未登录
     var isLogin : Bool = true
     
@@ -65,7 +68,6 @@ class YTMineHeaderView: UIView {
                 highLightImage = "setupicon_profile_press_24x24_"
             }
             let btn = YTVerticalButton()
-            btn.tag = index
             btn.frame = CGRect.init(x: CGFloat(index)*(SCREENW/3), y: 0, width: SCREENW/3, height: 67)
             btn.setTitle(title, for: UIControlState.normal)
             btn.setTitleColor(UIColor.black, for: UIControlState.normal)
@@ -83,6 +85,7 @@ class YTMineHeaderView: UIView {
     
    @objc fileprivate func bottomBtnDidClick(_ btn : UIButton) {
         print(#function)
+        bottomItemDidClick?(btn)
     }
     
     

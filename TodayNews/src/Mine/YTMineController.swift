@@ -17,7 +17,7 @@ class YTMineController: YTBaseController {
     
     override func loadView() {
         super.loadView()
-        navigationController?.navigationBar.isHidden = true
+//        navigationController?.navigationBar.isHidden = true
     }
     
     override func viewDidLoad() {
@@ -25,15 +25,24 @@ class YTMineController: YTBaseController {
 
         loadData()
         view.addSubview(tableView)
-
         //
         let islogin = true
         let headerView = YTMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREENW, height: islogin ? 278 : 248))
+        tableView.tableFooterView = UIView.init(frame: CGRect.zero)
         headerView.isLogin = islogin
         tableView.tableHeaderView = headerView
         let mineNibCell = UINib.init(nibName: "YTMineCell", bundle: nil)
         tableView.register(mineNibCell, forCellReuseIdentifier: mineCell)
-//        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: headerViewIdentifier)
+        
+        //点击事件
+        headerView.bottomItemDidClick = { [weak self] (item) in
+            if item.titleLabel?.text == "设置" {
+                let settingVC = YTMineSettingController()
+                settingVC.title = "设置"
+                self?.navigationController?.pushViewController(settingVC, animated: true)
+            }
+        }
+        
     }
 
 
@@ -95,13 +104,13 @@ extension YTMineController : UITableViewDelegate,UITableViewDataSource {
     }
     
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView.init()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
-    }
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        return UIView.init()
+//    }
+//    
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 0
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 12
