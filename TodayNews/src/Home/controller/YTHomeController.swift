@@ -15,7 +15,11 @@ class YTHomeController: YTBaseController {
     //首页顶部标题数组
     var homeTitles = [YTHomeCategoryTitles]()
     
-    
+   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
     
     override func loadView() {
         super.loadView()
@@ -159,7 +163,7 @@ extension YTHomeController : UIScrollViewDelegate {
     
     //scrollView 停止加速
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        //当期那索引
+        //当前索引
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         //跟刚开始拖拽时的 index 比较，是否需要改变 label 的位置
         titleView.adjustTitleOffsetToCurrentIndex(index, oldIndex: self.oldIndex)

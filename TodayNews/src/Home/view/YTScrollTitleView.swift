@@ -216,12 +216,6 @@ extension YTScrollTitleView {
 
 
 
-
-
-
-
-
-
 class YTTitleLable : UILabel {
     //用来记录当前 label 的缩放比例
     var currentScale : CGFloat = 1.0 {

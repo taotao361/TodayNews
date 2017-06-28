@@ -25,6 +25,7 @@ class YTHomeTopicController: UITableViewController {
     //存放新闻主题的数组
     fileprivate var newsTopics = [YTNewsTopic]()
     
+     var arr : Array = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,7 @@ class YTHomeTopicController: UITableViewController {
             self?.tableView.reloadData()
         }
     }
+    
     
     
     

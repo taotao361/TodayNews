@@ -15,9 +15,18 @@ class YTMineController: YTBaseController {
 
     var cellItems = [AnyObject]()
     
+//    var aa = [Op]()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func loadView() {
         super.loadView()
 //        navigationController?.navigationBar.isHidden = true
+//        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidLoad() {
@@ -38,6 +47,8 @@ class YTMineController: YTBaseController {
         headerView.bottomItemDidClick = { [weak self] (item) in
             if item.titleLabel?.text == "设置" {
                 let settingVC = YTMineSettingController()
+//                settingVC.tabBarItem.title = "setting"
+//                settingVC.tabBarItem.image = UIImage.init(named: "newcare_tabbar_22x22_")
                 settingVC.title = "设置"
                 self?.navigationController?.pushViewController(settingVC, animated: true)
             }
@@ -70,6 +81,21 @@ class YTMineController: YTBaseController {
         return tableView
     }()
     
+    
+    
+    //MARK:---旋转
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        return .portrait
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .all
+    }
     
     
     
@@ -117,8 +143,8 @@ extension YTMineController : UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let modelArr = cellItems[indexPath.section]
-        let model = modelArr[indexPath.row] as! YTMineModel
+        let modelArr = cellItems[indexPath.section] as? [AnyObject]
+        let model = modelArr?[indexPath.row] as! YTMineModel
         let cell = tableView.dequeueReusableCell(withIdentifier: mineCell) as! YTMineCell
         cell.mineModel = model
         return cell
