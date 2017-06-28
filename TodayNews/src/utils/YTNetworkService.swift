@@ -182,6 +182,47 @@ class YTNetworkService: NSObject {
     }
     
     
+    //获取视频 toptitle
+    func loadVideoTopTitle(_ dataClosure : @escaping (_ videoTitleModel : [YTVideoTopTitleModel]) -> Void) {
+        let url = BASE_URL + "video_api/get_category/v1/?"
+        let params = ["device_id": device_id,
+                      "version_code": "5.7.1",
+                      "iid": IID,
+                      "device_platform": "iphone",
+                      "os_version": "9.3.2"]
+        Alamofire.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+
+            guard response.result.isSuccess else {
+                SVProgressHUD.showError(withStatus: "加载失败")
+                return
+            }
+            
+            if let dataJson = response.result.value {
+                var modelsArray = [YTVideoTopTitleModel]()
+                let data = JSON.init(dataJson)
+                let modelData = data["data"].arrayObject
+                
+                print(data)
+                
+                for dic in modelData as! [[String:AnyObject]] {
+                    let model = YTVideoTopTitleModel.init(dic: dic)
+                    modelsArray.append(model)
+                }
+                dataClosure(modelsArray)
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
