@@ -50,6 +50,7 @@ class YTVideoController: YTBaseController {
        let titleView = YTVideoTitleView()
         titleView.frame = CGRect.init(x: 0, y: 0, width: SCREENW, height: 44)
         titleView.backgroundColor = UIColor.white
+        titleView.delegate = self
         return titleView
     }()
     
@@ -71,8 +72,9 @@ class YTVideoController: YTBaseController {
 }
 
 
-extension YTVideoController : UIScrollViewDelegate {
+extension YTVideoController : UIScrollViewDelegate,YTVideoTitleViewDelegate {
     
+    //MARK:------ scrollview delegate
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         oldIndex = index
@@ -87,11 +89,26 @@ extension YTVideoController : UIScrollViewDelegate {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         let vc = childViewControllers[index]
         vc.view.x = scrollView.contentOffset.x
-        vc.view.y = scrollView.contentOffset.y
+        vc.view.y = 0
         vc.view.height = scrollView.height
         scrollView.addSubview(vc.view)
+        titleView.adjustTitleLabel(oldIndex: oldIndex, currentIndex: index)
     }
     
+    //MAARK:-------- YTVideoTitleViewDelegate
+    func videoTitle(videoTitleView: YTVideoTitleView, didSelectedVideoTitle videoTitle: YTVideoTopTitleModel, index: Int) {
+        let vc = childViewControllers[index]
+        vc.view.x = CGFloat(index)*SCREENW
+        vc.view.y = 0
+        vc.view.height = scrollView.height
+        scrollView.addSubview(vc.view)
+        scrollView.setContentOffset(CGPoint.init(x: vc.view.x, y: 0), animated: true)
+        
+    }
+    
+    func videoTitle(videoTitleView: YTVideoTitleView, didSelectedVideoSearchBtn btn: UIButton) {
+        
+    }
     
 }
 
