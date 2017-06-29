@@ -50,6 +50,7 @@ class YTVideoController: YTBaseController {
        let titleView = YTVideoTitleView()
         titleView.frame = CGRect.init(x: 0, y: 0, width: SCREENW, height: 44)
         titleView.backgroundColor = UIColor.white
+        titleView.delegate = self
         return titleView
     }()
     
@@ -71,15 +72,19 @@ class YTVideoController: YTBaseController {
 }
 
 
-extension YTVideoController : UIScrollViewDelegate {
+extension YTVideoController : UIScrollViewDelegate,YTVideoTitleViewDelegate {
     
+    //MARK:------ scrollview delegate
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         oldIndex = index
+        titleView.oldIndex = oldIndex
     }
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
+        scrollViewDidEndScrollingAnimation(scrollView)
         titleView.adjustTitleLabel(oldIndex: oldIndex, currentIndex: index)
     }
     
@@ -87,11 +92,25 @@ extension YTVideoController : UIScrollViewDelegate {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         let vc = childViewControllers[index]
         vc.view.x = scrollView.contentOffset.x
-        vc.view.y = scrollView.contentOffset.y
+        vc.view.y = 0
         vc.view.height = scrollView.height
         scrollView.addSubview(vc.view)
+        scrollView.setContentOffset(CGPoint.init(x: vc.view.x, y: 0), animated: true)
     }
     
+    //MAARK:-------- YTVideoTitleViewDelegate
+    func videoTitle(videoTitleView: YTVideoTitleView, didSelectedVideoTitle videoTitle: YTVideoTopTitleModel, oldIndex: Int) {
+        var offset = self.scrollView.contentOffset
+        offset.x = CGFloat(oldIndex) * scrollView.width
+        self.scrollView.setContentOffset(offset, animated: true)
+        
+        //赋值
+        self.oldIndex = oldIndex
+    }
+    
+    func videoTitle(videoTitleView: YTVideoTitleView, didSelectedVideoSearchBtn btn: UIButton) {
+        
+    }
     
 }
 
