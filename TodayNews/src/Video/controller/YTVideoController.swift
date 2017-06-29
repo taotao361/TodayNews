@@ -78,10 +78,13 @@ extension YTVideoController : UIScrollViewDelegate,YTVideoTitleViewDelegate {
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
         oldIndex = index
+        titleView.oldIndex = oldIndex
     }
+    
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = Int(scrollView.contentOffset.x / scrollView.width)
+        scrollViewDidEndScrollingAnimation(scrollView)
         titleView.adjustTitleLabel(oldIndex: oldIndex, currentIndex: index)
     }
     
@@ -92,18 +95,17 @@ extension YTVideoController : UIScrollViewDelegate,YTVideoTitleViewDelegate {
         vc.view.y = 0
         vc.view.height = scrollView.height
         scrollView.addSubview(vc.view)
-        titleView.adjustTitleLabel(oldIndex: oldIndex, currentIndex: index)
+        scrollView.setContentOffset(CGPoint.init(x: vc.view.x, y: 0), animated: true)
     }
     
     //MAARK:-------- YTVideoTitleViewDelegate
-    func videoTitle(videoTitleView: YTVideoTitleView, didSelectedVideoTitle videoTitle: YTVideoTopTitleModel, index: Int) {
-        let vc = childViewControllers[index]
-        vc.view.x = CGFloat(index)*SCREENW
-        vc.view.y = 0
-        vc.view.height = scrollView.height
-        scrollView.addSubview(vc.view)
-        scrollView.setContentOffset(CGPoint.init(x: vc.view.x, y: 0), animated: true)
+    func videoTitle(videoTitleView: YTVideoTitleView, didSelectedVideoTitle videoTitle: YTVideoTopTitleModel, oldIndex: Int) {
+        var offset = self.scrollView.contentOffset
+        offset.x = CGFloat(oldIndex) * scrollView.width
+        self.scrollView.setContentOffset(offset, animated: true)
         
+        //赋值
+        self.oldIndex = oldIndex
     }
     
     func videoTitle(videoTitleView: YTVideoTitleView, didSelectedVideoSearchBtn btn: UIButton) {

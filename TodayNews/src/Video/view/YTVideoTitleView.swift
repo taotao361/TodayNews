@@ -11,7 +11,7 @@ import SnapKit
 
 protocol YTVideoTitleViewDelegate {
     //点击标题 和 🔍
-    func videoTitle(videoTitleView : YTVideoTitleView,didSelectedVideoTitle videoTitle : YTVideoTopTitleModel,index : Int)
+    func videoTitle(videoTitleView : YTVideoTitleView,didSelectedVideoTitle videoTitle : YTVideoTopTitleModel,oldIndex : Int)
     func videoTitle(videoTitleView : YTVideoTitleView,didSelectedVideoSearchBtn btn : UIButton)
 }
 
@@ -108,7 +108,7 @@ class YTVideoTitleView: UIView {
         
         self.adjustTitleLabel(oldIndex: oldIndex, currentIndex: currentIndex)
         
-        delegate?.videoTitle(videoTitleView: self, didSelectedVideoTitle: titles[currentIndex],index : currentIndex)
+        delegate?.videoTitle(videoTitleView: self, didSelectedVideoTitle: titles[currentIndex],oldIndex : oldIndex)
     }
     
     //MARK: ----添加label
@@ -159,7 +159,6 @@ class YTVideoTitleView: UIView {
 //    }
 
     func adjustTitleLabel(oldIndex : Int,currentIndex : Int) {
-        
         guard currentIndex != oldIndex else {
             return
         }

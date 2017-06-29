@@ -16,7 +16,10 @@ class YTVideoListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let random = CGFloat(arc4random() % 256)
+        self.view.backgroundColor = UIColor.init(white: random/255, alpha: 1.0)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
